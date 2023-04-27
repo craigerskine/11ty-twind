@@ -4,7 +4,8 @@
   "private": false,
   "scripts": {
     "start": "eleventy --serve",
-    "build": "eleventy"
+    "build": "eleventy",
+    "ghpages": "eleventy"
   },
   "keywords": [
     "11ty",
