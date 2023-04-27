@@ -5,7 +5,7 @@
   "scripts": {
     "start": "eleventy --serve",
     "build": "eleventy",
-    "ghpages": "eleventy"
+    "ghpages": "eleventy --pathprefix=11ty-twind"
   },
   "keywords": [
     "11ty",
