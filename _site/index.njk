@@ -1,0 +1,45 @@
+---
+layout: 'layouts/default.njk'
+title: Welcome...
+---
+
+<article class="prose prose-a:text-pri-500 mx-auto max-w-5xl">
+{% renderTemplate "md" %}
+# Intro heading with one-off Twind custom style applied via `markdown-it-attrs` {.p-10 .text-2xl .text-sec-600 .leading-tight .rounded-xl .ring-(& .current .inset) .md:(text-[calc(3vw)]) .dark:(text-sec-600)}
+
+## Using [Twind](https://twind.style/) we can write our markup using Tailwind CSS classes without having to install or configure Tailwind at all. (twind does support tw config syntax too :)
+
+### [Twind](https://twind.style/) monitors your markup and auto applies the correct CSS on the client side. No compiling, no postCSS garbage, no purge, no unused styles. {.font-normal}
+
+We can also do partial class construction in Vue/React/Alpine, etc. since we don't have to worry about compiling and purging.
+
+```html
+:class="'bg-' + theme.color + '-500'"
+```
+
+This all happens client-side at blazing speed. Give it a try... inspect this page and add your own Tailwind or Twind custom syntax classes and see the results in realtime. Fast, simple, fun.
+
+---{.invisible}
+
+Example... {.mx-auto .w-32 .h-32 .bg-pri-500/50 .bg-gradient-to-b .from-pri-700 .text-(center .pri-100) .flex .items-center .justify-center .rounded-full .shadow-xl .motion-safe:(transition .animate-bounce) .hover:(bg-gray-700) .md:(text-start)}
+
+[Twind](https://twind.style/) comes with some pretty awesome features too. We can group "like" classes and variants to simplify our markup. We can also do one-offs (see heading above). Also, we can enjoy an auto dark mode without having to write any extra `dark:` classes (although we can override them if need be :)
+
+---
+
+## Typography plugin...
+
+> Commodo irure laboris incididunt anim veniam non ea et nisi ea. Nostrud pariatur ipsum aliqua sit consequat occaecat velit enim enim ex consectetur anim sunt id.
+
+Non pariatur excepteur ut laboris ut. Consectetur reprehenderit id aute et eu et est deserunt ipsum laborum cillum cupidatat. Ad aliqua et pariatur pariatur consectetur magna non eiusmod commodo veniam fugiat. Mollit commodo commodo adipisicing culpa officia veniam proident ut sint reprehenderit culpa culpa est mollit. Nisi incididunt ipsum qui in amet enim sint dolore elit eiusmod est.
+
+* List item
+* List item
+  * Nested item
+  * Nested item
+* List item
+
+Aute excepteur officia sunt veniam tempor consequat do do nisi ullamco laboris. Nisi irure laboris sint veniam. Deserunt aute irure in sit.
+{% endrenderTemplate %}
+</article>
+

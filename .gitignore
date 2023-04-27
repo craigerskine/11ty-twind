@@ -1,0 +1,7 @@
+# ignore
+.DS_Store
+*.code-workspace
+/gh-pages**
+/node_modules
+/_design
+/public

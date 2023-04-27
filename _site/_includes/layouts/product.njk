@@ -1,0 +1,32 @@
+---
+layout: 'layouts/default.njk'
+---
+
+<div class="mx-auto max-w-xl lg:(max-w-none grid-(& cols-2) gap-16)">
+  <aside class="lg:(order-last)">
+    <figure class="mx-auto max-w-5xl">
+      <img src="https://picsum.photos/id/{{ img }}/1024/768" alt="{{ title }} photo" class="w-full h-96 object-(cover center) rounded-2xl motion-safe:(transition-all) hover:(object-bottom)" />
+      <figcaption class="p-6 space-y-1">
+        <div class="flex justify-end">
+          <ul class="flex">
+            {%- for i in range(0, 5) %}
+            {%- if rating >= loop.index %}
+            <li><iconify-icon icon="mdi:star" inline="false" class="iconify text-yellow-500"></iconify-icon></li>
+            {%- else %}
+            <li class="opacity-30"><iconify-icon icon="mdi:star-outline" inline="false" class="iconify"></iconify-icon></li>
+            {%- endif %}
+            {%- endfor %}
+          </ul>
+        </div>
+      </figcaption>
+    </figure>
+  </aside>
+  
+  <article class="prose prose-a:text-pri-500 mx-auto max-w-5xl">
+    {{ content | safe }}
+  </article>
+</div>
+
+<nav class="pt-12 flex justify-center">
+  <a href="../" class="ring-(1 pri-500/20) w-12 h-12 text-2xl flex rounded-full motion-safe:(transition) hover:(bg-pri-600 text-pri-100)"><iconify-icon icon="mdi:chevron-left" inline="false" class="iconify m-auto"></iconify-icon></a>
+</nav>
