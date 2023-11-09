@@ -44,6 +44,11 @@ module.exports = function(eleventyConfig) {
     return '';
   });
 
+  // md {{ some.content | md | safe }}
+  eleventyConfig.addFilter('md', function(content) {
+    return markdownLibrary.render(content);
+  });
+
   // | randomLimit(6, page.url)
   eleventyConfig.addFilter('randomLimit', (arr, limit, currPage) => {
     const pageArr = arr.filter((page) => page.url !== currPage);
