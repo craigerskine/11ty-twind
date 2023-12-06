@@ -17,8 +17,8 @@ const toggleColorMode = function() {
   localStorage.setItem('color-mode', 'dark');
 };
 
-document.querySelectorAll(".color-mode").forEach(btn => {
-  btn.addEventListener("click", toggleColorMode);
+document.querySelectorAll('.color-mode').forEach(btn => {
+  btn.addEventListener('click', toggleColorMode);
 });
 
 // twind
@@ -41,7 +41,7 @@ install({
         sec: theme('colors.pink'),
       }),
       fontFamily: ({ theme }) => ({
-        sans: 'Inter,'+ theme('fontFamily.sans'),
+        sans: ['Inter', ...theme('fontFamily.sans')],
       }),
     },
   },
