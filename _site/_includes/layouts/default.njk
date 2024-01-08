@@ -13,7 +13,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="icon" type="image/x-icon" href="{{ '/' | url }}favicon.ico" />
     <link rel="preconnect" href="https://fonts.gstatic.com" />
-    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" />
+    <link onload="this.onload=null;this.rel='stylesheet'" rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" />
 
     <meta property="og:title" content="{% if title %}{{ title +' / '+ site.meta.title }}{% else %}{{ site.meta.title or site.meta.title }}{% endif %}" />
     <meta property="og:description" content="{{ site.meta.description }}" />
