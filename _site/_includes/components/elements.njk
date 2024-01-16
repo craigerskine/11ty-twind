@@ -1,10 +1,10 @@
 {% macro heading(tag='h1',divider=false) %}
 <{{ tag }} class="pb-12 w-full text-2xl leading-tight font-black flex items-center space-x-4 lg:(text-[calc(3vw)])">
-  {%- if divider %}<i class="h-px bg-gray-500/20 flex-1 aria-hidden="true""></i>{%- endif %}
+  {%- if divider %}<i class="h-px bg-gray-500/20 flex-1" aria-hidden="true"></i>{%- endif %}
   <span class="{% if divider %}flex-none{% else %}text-center flex-1{% endif %}">
     {{ caller() }}
   </span>
-  {%- if divider %}<i class="h-px bg-gray-500/20 flex-1 aria-hidden="true""></i>{%- endif %}
+  {%- if divider %}<i class="h-px bg-gray-500/20 flex-1" aria-hidden="true"></i>{%- endif %}
 </{{ tag }}>
 {% endmacro %}
 

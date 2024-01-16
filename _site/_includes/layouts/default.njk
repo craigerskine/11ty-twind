@@ -1,7 +1,7 @@
 {%- import 'components/elements.njk' as el -%}
 
 <!doctype html>
-<html lang="en">
+<html lang="en" class="bg-transparent antialiased">
 
   <head>
     <meta charset="utf-8" />
@@ -31,7 +31,7 @@
 
   </head>
 
-  <body class="bg-gray-50 text-pri-900" style="display: none;">
+  <body class="bg-gray-50 text-pri-900 !block" style="display: none;">
 
     <div class="min-h-screen flex-(& col) relative">
 
@@ -89,7 +89,7 @@
               <ul class="py-5 text-2xl flex justify-center gap-5 md:(justify-start)">
                 {%- for item in site.social %}
                 <li>
-                  <a href="{{ item.url }}" class="opacity-50 motion-safe:(transition) hover:(text-{{ item.color }}-500 opacity-100)">
+                  <a href="{{ item.url }}" class="opacity-50 motion-safe:(transition) hover:(text-{{ item.color }}-500 opacity-100)" aria-label="{{ item.title }}">
                     <iconify-icon icon="{{ item.ico }}" inline="false" class="iconify"></iconify-icon>
                   </a>
                 </li>
