@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" class="bg-transparent antialiased">
 
   <head>
     <meta charset="utf-8" />
@@ -29,7 +29,7 @@
 
   </head>
 
-  <body class="bg-gray-50 text-pri-900" style="display: none;">
+  <body class="bg-gray-50 text-pri-900 !block" style="display: none;">
 
     <div class="min-h-screen flex-(& col) relative">
 
@@ -69,17 +69,17 @@
         <section class="mx-auto px-4 max-w-7xl">
           <div class="pt-12">
             
-<article class="prose prose-a:text-pri-500 mx-auto max-w-5xl">
+<article class="prose prose-a:(text-pri-500) prose-headings:(text-wrap-balance) mx-auto max-w-4xl">
 <h1 class="p-10 text-2xl text-sec-600 leading-tight rounded-xl ring-(&amp; current inset) md:(text-[calc(3vw)]) dark:(text-sec-600)">Intro heading with one-off Twind custom style applied via <code>markdown-it-attrs</code></h1>
 <h2>Using <a href="https://twind.style/">Twind</a> we can write our markup using Tailwind CSS classes without having to install or configure Tailwind at all. (twind does support tw config syntax too :)</h2>
-<h3 class="font-normal"><a href="https://twind.style/">Twind</a> monitors your markup and auto applies the correct CSS on the client side. No compiling, no postCSS garbage, no purge, no unused styles.</h3>
+<h3 class="font-semibold">Twind monitors your markup and auto applies the correct CSS on the client side. No compiling, no postCSS garbage, no purge, no unused styles.</h3>
 <p>We can also do partial class construction in Vue/React/Alpine, etc. since we don't have to worry about compiling and purging.</p>
 <pre><code class="language-html">:class=&quot;'bg-' + theme.color + '-500'&quot;
 </code></pre>
 <p>This all happens client-side at blazing speed. Give it a try... inspect this page and add your own Tailwind or Twind custom syntax classes and see the results in realtime. Fast, simple, fun.</p>
 <hr class="invisible">
 <p class="mx-auto w-32 h-32 bg-pri-500/50 bg-gradient-to-b from-pri-700 text-(center pri-100) flex items-center justify-center rounded-full shadow-xl motion-safe:(transition animate-bounce) hover:(bg-gray-700) md:(text-start)">Example...</p>
-<p><a href="https://twind.style/">Twind</a> comes with some pretty awesome features too. We can group &quot;like&quot; classes and variants to simplify our markup. We can also do one-offs (see heading above). Also, we can enjoy an auto dark mode without having to write any extra <code>dark:</code> classes (although we can override them if need be :)</p>
+<p>Twind comes with some pretty awesome features too. We can group &quot;like&quot; classes and variants to simplify our markup. We can also do one-offs (see heading above). Also, we can enjoy an auto dark mode without having to write any extra <code>dark:</code> classes (although we can override them if need be :)</p>
 <hr>
 <h2>Typography plugin...</h2>
 <blockquote>
@@ -115,22 +115,22 @@
               </a>
               <ul class="py-5 text-2xl flex justify-center gap-5 md:(justify-start)">
                 <li>
-                  <a href="https://twitter.com/USER" class="opacity-50 motion-safe:(transition) hover:(text-blue-500 opacity-100)">
+                  <a href="https://twitter.com/USER" class="opacity-50 motion-safe:(transition) hover:(text-blue-500 opacity-100)" aria-label="Twitter">
                     <iconify-icon icon="mdi:twitter" inline="false" class="iconify"></iconify-icon>
                   </a>
                 </li>
                 <li>
-                  <a href="https://youtube.com/USER" class="opacity-50 motion-safe:(transition) hover:(text-red-500 opacity-100)">
+                  <a href="https://youtube.com/USER" class="opacity-50 motion-safe:(transition) hover:(text-red-500 opacity-100)" aria-label="Youtube">
                     <iconify-icon icon="mdi:youtube" inline="false" class="iconify"></iconify-icon>
                   </a>
                 </li>
                 <li>
-                  <a href="https://instagram.com/USER" class="opacity-50 motion-safe:(transition) hover:(text-orange-500 opacity-100)">
+                  <a href="https://instagram.com/USER" class="opacity-50 motion-safe:(transition) hover:(text-orange-500 opacity-100)" aria-label="Instagram">
                     <iconify-icon icon="mdi:instagram" inline="false" class="iconify"></iconify-icon>
                   </a>
                 </li>
                 <li>
-                  <a href="https://github.com/craigerskine/11ty-twind/" class="opacity-50 motion-safe:(transition) hover:(text-neutral-500 opacity-100)">
+                  <a href="https://github.com/craigerskine/11ty-twind/" class="opacity-50 motion-safe:(transition) hover:(text-neutral-500 opacity-100)" aria-label="GitHub">
                     <iconify-icon icon="mdi:github" inline="false" class="iconify"></iconify-icon>
                   </a>
                 </li>
@@ -187,7 +187,7 @@
             </p>
             <p>
               Updated on:
-              <time datetime="2024-01-08T17:24:49.237Z" class="block">01/08/2024</time>
+              <time datetime="2024-01-16T21:25:55.008Z" class="block">01/16/2024</time>
             </p>
           </div>
         </div>
@@ -197,7 +197,7 @@
 
     
 
-    <script src="/11ty-twind/_assets/js/_app.js?v=20240817"></script>
+    <script src="/11ty-twind/_assets/js/_app.js?v=202401621"></script>
 
   </body>
 
