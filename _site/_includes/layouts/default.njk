@@ -1,4 +1,5 @@
 {%- import 'components/elements.njk' as el -%}
+{%- set page_title -%}{{ title +' :: '+ site.meta.title if title else site.meta.title }}{%- endset -%}
 
 <!doctype html>
 <html lang="en" class="bg-transparent antialiased">
@@ -6,7 +7,7 @@
   <head>
     <meta charset="utf-8" />
     <meta http-equiv="x-ua-compatible" content="ie=edge" />
-    <title>{{ title +' :: '+ site.meta.title if title else site.meta.title }}</title>
+    <title>{{ page_title }}</title>
     <meta name="description" content="{{ site.meta.description }}" />
     <meta name="author" content="{{ site.meta.author }} - {{ site.meta.author_url }}" />
     <meta name="generator" content="{{ eleventy.generator }}" />
@@ -15,7 +16,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" />
     <link onload="this.onload=null;this.rel='stylesheet'" rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" />
 
-    <meta property="og:title" content="{% if title %}{{ title +' / '+ site.meta.title }}{% else %}{{ site.meta.title or site.meta.title }}{% endif %}" />
+    <meta property="og:title" content="{{ page_title }}" />
     <meta property="og:description" content="{{ site.meta.description }}" />
     <meta property="og:type" content="website" />
     <meta property="og:url" content="{{ page.url | url }}" />
