@@ -6,7 +6,7 @@
   <head>
     <meta charset="utf-8" />
     <meta http-equiv="x-ua-compatible" content="ie=edge" />
-    <title>{% if title %}{{ title +' :: '+ site.meta.title }}{% else %}{{ site.meta.title or site.meta.title }}{% endif %}</title>
+    <title>{{ title +' :: '+ site.meta.title if title else site.meta.title }}</title>
     <meta name="description" content="{{ site.meta.description }}" />
     <meta name="author" content="{{ site.meta.author }} - {{ site.meta.author_url }}" />
     <meta name="generator" content="{{ eleventy.generator }}" />
