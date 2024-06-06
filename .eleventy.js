@@ -1,9 +1,11 @@
 const { EleventyRenderPlugin } = require('@11ty/eleventy');
 const eleventyNavigationPlugin = require('@11ty/eleventy-navigation');
+const syntaxHighlight = require('@11ty/eleventy-plugin-syntaxhighlight');
 const esbuild = require('esbuild');
 const markdownIt = require('markdown-it');
 const markdownItAttrs = require('markdown-it-attrs');
 const yaml = require('js-yaml');
+const CleanCSS = require('clean-css');
 
 module.exports = function(eleventyConfig) {
 
@@ -23,11 +25,14 @@ module.exports = function(eleventyConfig) {
 
   eleventyConfig.addPlugin(EleventyRenderPlugin);
   eleventyConfig.addPlugin(eleventyNavigationPlugin);
+  eleventyConfig.addPlugin(syntaxHighlight);
 
   //{% renderTemplate "md" %}
   //# Blah{.text-center}
   //{% endrenderTemplate %}
-  let markdownLibrary = markdownIt().disable('code').use(markdownItAttrs);
+  const markdownLibrary = markdownIt({
+    html: true,
+  }).disable('code').use(markdownItAttrs);
   eleventyConfig.setLibrary('md', markdownLibrary);
 
   eleventyConfig.addDataExtension('yaml', (contents) => yaml.load(contents));
@@ -47,6 +52,11 @@ module.exports = function(eleventyConfig) {
   // md {{ some.content | md | safe }}
   eleventyConfig.addFilter('md', function(content) {
     return markdownLibrary.render(content);
+  });
+
+  // cssmin
+  eleventyConfig.addFilter("cssmin", function(code) {
+    return new CleanCSS({}).minify(code).styles;
   });
 
   // | randomLimit(6, page.url)

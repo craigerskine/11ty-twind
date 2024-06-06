@@ -1,0 +1,24 @@
+{%- macro button(param) -%}
+
+  {%- set color -%}
+    {{- param.color if param.color else 'pri' -}}
+  {%- endset -%}
+
+  {%- set classes -%}
+    {%- if param.outline -%}
+      text-{{ color }}-500 ring-(1 inset current) hover:(text-{{ color }}-600)
+    {%- elseif param.ghost -%}
+      text-{{ color }}-500 hover:(bg-{{ color }}-500/10 text-{{ color }}-600)
+    {%- else -%}
+      bg-{{ color }}-500 text-black/90 hover:(bg-{{ color }}-600)
+    {%- endif -%}
+    {%- if param.reverse -%}
+      flex-row-reverse
+    {%- endif -%}
+  {%- endset -%}
+
+  <{% if param.href %}a href="{{ param.href }}"{% else %}button type="button"{% endif %} class="{% if not param.label and param.icon %}w-9 h-9{% else %}py-1.5 px-3{% endif %} max-w-[18rem] inline-flex items-center justify-center gap-1 {% if param.circle %}rounded-full{% else %}rounded-lg{% endif %} motion-safe:(transition) {{ classes }}"{{ param.props | safe }}>
+    {%- if param.label -%}<span class="min-w-0 flex-1 truncate">{{ param.label | safe }}</span>{%- endif -%}
+    {%- if param.icon -%}<span class="text-xl flex-(& shrink-0) opacity-70"><iconify-icon icon="{{ param.icon }}" class="m-auto"></iconify-icon></span>{%- endif -%}
+  </{% if param.href %}a{% else %}button{% endif %}>
+{%- endmacro -%}

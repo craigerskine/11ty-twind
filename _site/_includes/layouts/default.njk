@@ -22,6 +22,10 @@
     <meta property="og:url" content="{{ page.url | url }}" />
     <meta property="og:image" content="{{ '/' | url }}_assets/img/og.png" />
 
+    {% set css %}
+      {% include 'css/prism.css' %}
+    {% endset %}
+    <style>{{ css | cssmin | safe }}</style>
     {% renderblock 'css' %}
 
     <script>
@@ -64,9 +68,7 @@
       <main class="pb-8 w-full flex-1 md:(pb-24)">
         <section class="mx-auto px-4 max-w-7xl">
           <div class="pt-12">
-            {%- if page.url !== '/' %}
             {%- call el.heading() %}{{ title }}{%- endcall %}
-            {%- endif %}
             {{ content | safe }}
           </div>
         </section>

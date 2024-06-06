@@ -58,3 +58,8 @@ injectGlobal`
     /* .some-selector,#some-selector { @apply text-wrap-balance; } */
   }
 `
+
+// alpinejs
+import Alpine from 'alpinejs';
+window.Alpine = Alpine;
+Alpine.start();
