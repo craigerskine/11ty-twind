@@ -79,43 +79,37 @@
             <article class="prose prose-a:(text-pri-500) prose-headings:(text-wrap-balance) prose-pre:(bg-gray-800 dark:bg-gray-800) mx-auto max-w-4xl">
 <h2>Intro heading</h2>
 <p class="lead">Incididunt exercitation excepteur eu laboris qui et velit exercitation fugiat ut esse. Proident officia deserunt deserunt dolore eu excepteur id sit ex in adipisicing minim. Nisi consectetur est elit consectetur anim in elit quis esse. Veniam irure sint veniam cupidatat culpa pariatur reprehenderit. Anim enim consequat id labore Lorem velit do aliquip reprehenderit.</p>
-<p><strong>Here's an example of a parameterized component:</strong></p>
+<p><strong>Here's an example of a <a href="https://github.com/craigerskine/11ty-twind/blob/main/_site/_includes/macro.button.njk">parameterized component</a>:</strong></p>
 <p class="flex flex-wrap gap-3"><button type="button" class="py-1.5 px-3 max-w-[18rem] inline-flex items-center justify-center gap-1 rounded-lg motion-safe:(transition) bg-pri-500 text-black/90 hover:(bg-pri-600)"><span class="min-w-0 flex-1 truncate">Primary</span></button> <button type="button" class="py-1.5 px-3 max-w-[18rem] inline-flex items-center justify-center gap-1 rounded-lg motion-safe:(transition) text-sec-500 ring-(1 inset current) hover:(text-sec-600)"><span class="min-w-0 flex-1 truncate">Secondary</span></button> <button type="button" class="py-1.5 px-3 max-w-[18rem] inline-flex items-center justify-center gap-1 rounded-lg motion-safe:(transition) text-neutral-500 hover:(bg-neutral-500/10 text-neutral-600)"><span class="min-w-0 flex-1 truncate">Ghost</span></button> <button type="button" class="w-9 h-9 max-w-[18rem] inline-flex items-center justify-center gap-1 rounded-full motion-safe:(transition) bg-orange-500 text-black/90 hover:(bg-orange-600)flex-row-reverse" aria-label="check"><span class="text-xl flex-(& shrink-0) opacity-70"><iconify-icon icon="mdi:check" class="m-auto"></iconify-icon></span></button> <button type="button" class="py-1.5 px-3 max-w-[18rem] inline-flex items-center justify-center gap-1 rounded-lg motion-safe:(transition) bg-neutral-500 text-black/90 hover:(bg-neutral-600)"><span class="min-w-0 flex-1 truncate">Truncate super long button labels like this</span></button></p>
-<pre class="language-twig"><code class="language-twig"><span class="token twig language-twig"><span class="token comment">{# import #}</span></span>
-<span class="token twig language-twig"><span class="token delimiter punctuation">{%-</span> <span class="token tag-name keyword">from</span> <span class="token string"><span class="token punctuation">'</span>macro.button.njk<span class="token punctuation">'</span></span> import button <span class="token delimiter punctuation">-%}</span></span>
-
-<span class="token twig language-twig"><span class="token comment">{# call #}</span></span>
-<span class="token twig language-twig"><span class="token delimiter punctuation">{{</span> button<span class="token punctuation">(</span><span class="token punctuation">{</span>
-  color<span class="token punctuation">:</span> <span class="token string"><span class="token punctuation">'</span>orange<span class="token punctuation">'</span></span><span class="token punctuation">,</span>
-  icon<span class="token punctuation">:</span> <span class="token string"><span class="token punctuation">'</span>mdi:check<span class="token punctuation">'</span></span><span class="token punctuation">,</span>
-  props<span class="token punctuation">:</span> <span class="token string"><span class="token punctuation">'</span> aria-label="check"<span class="token punctuation">'</span></span>
-<span class="token punctuation">}</span><span class="token punctuation">)</span> <span class="token delimiter punctuation">}}</span></span>
-
-<span class="token twig language-twig"><span class="token comment">{# _includes/macro.button.njk #}</span></span>
+<pre class="language-twig"><code class="language-twig"><span class="token twig language-twig"><span class="token comment">{# _includes/macro.button.njk #}</span></span>
 <span class="token twig language-twig"><span class="token delimiter punctuation">{%-</span> <span class="token tag-name keyword">macro</span> button<span class="token punctuation">(</span>param<span class="token punctuation">)</span> <span class="token delimiter punctuation">-%}</span></span>
-  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>button<span class="token twig language-twig"><span class="token delimiter punctuation">{{</span> param<span class="token punctuation">.</span>props <span class="token operator">|</span> safe <span class="token delimiter punctuation">}}</span></span></span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>py-1.5 px-3 bg-<span class="token twig language-twig"><span class="token delimiter punctuation">{{</span> param<span class="token punctuation">.</span>color <span class="token delimiter punctuation">}}</span></span>-500 text-black/90 inline-flex ...<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>button<span class="token twig language-twig"><span class="token delimiter punctuation">{{</span> param<span class="token punctuation">.</span>props <span class="token operator">|</span> safe <span class="token delimiter punctuation">}}</span></span></span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>py-1.5 px-3 bg-<span class="token twig language-twig"><span class="token delimiter punctuation">{{</span> param<span class="token punctuation">.</span>color <span class="token delimiter punctuation">}}</span></span>-500 text-black/90 inline-flex ...youGetTheIdea<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
     <span class="token twig language-twig"><span class="token delimiter punctuation">{{</span> param<span class="token punctuation">.</span>label <span class="token operator">|</span> safe <span class="token delimiter punctuation">}}</span></span>
     <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>iconify-icon</span> <span class="token attr-name">icon</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span><span class="token twig language-twig"><span class="token delimiter punctuation">{{</span> param<span class="token punctuation">.</span>icon <span class="token delimiter punctuation">}}</span></span><span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>iconify-icon</span><span class="token punctuation">></span></span>
   <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>button</span><span class="token punctuation">></span></span>
-<span class="token twig language-twig"><span class="token delimiter punctuation">{%-</span> <span class="token tag-name keyword">endmacro</span> <span class="token delimiter punctuation">-%}</span></span></code></pre>
-<hr>
-<h3>Another heading</h3>
-<blockquote>
-<p>Commodo irure laboris incididunt anim veniam non ea et nisi ea. Nostrud pariatur ipsum aliqua sit consequat occaecat velit enim enim ex consectetur anim sunt id.</p>
-</blockquote>
-<p>Non pariatur excepteur ut laboris ut. Consectetur reprehenderit id aute et eu et est deserunt ipsum laborum cillum cupidatat. Ad aliqua et pariatur pariatur consectetur magna non eiusmod commodo veniam fugiat. Mollit commodo commodo adipisicing culpa officia veniam proident ut sint reprehenderit culpa culpa est mollit. Nisi incididunt ipsum qui in amet enim sint dolore elit eiusmod est.</p>
-<ul>
-<li>List item</li>
-<li>List item
-<ul>
-<li>Nested item</li>
-<li>Nested item</li>
-</ul>
-</li>
-<li>List item</li>
-</ul>
-<p>Aute excepteur officia sunt veniam tempor consequat do do nisi ullamco laboris. Nisi irure laboris sint veniam. Deserunt aute irure in sit.</p>
-</article>
+<span class="token twig language-twig"><span class="token delimiter punctuation">{%-</span> <span class="token tag-name keyword">endmacro</span> <span class="token delimiter punctuation">-%}</span></span>
+
+
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>button</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>button<span class="token punctuation">"</span></span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>w-9 h-9 max-w-[18rem] inline-flex items-center justify-center gap-1 rounded-lg motion-safe:(transition) bg-orange-500 text-black/90 hover:(bg-orange-600)<span class="token punctuation">"</span></span> <span class="token attr-name">aria-label</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>check<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>span</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>text-xl flex-(&amp; shrink-0) opacity-70<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>iconify-icon</span> <span class="token attr-name">icon</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>mdi:check<span class="token punctuation">"</span></span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>m-auto<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>iconify-icon</span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>span</span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>button</span><span class="token punctuation">></span></span>```
+
+***
+
+### Another heading
+
+> Commodo irure laboris incididunt anim veniam non ea et nisi ea. Nostrud pariatur ipsum aliqua sit consequat occaecat velit enim enim ex consectetur anim sunt id.
+
+Non pariatur excepteur ut laboris ut. Consectetur reprehenderit id aute et eu et est deserunt ipsum laborum cillum cupidatat. Ad aliqua et pariatur pariatur consectetur magna non eiusmod commodo veniam fugiat. Mollit commodo commodo adipisicing culpa officia veniam proident ut sint reprehenderit culpa culpa est mollit. Nisi incididunt ipsum qui in amet enim sint dolore elit eiusmod est.
+
+* List item
+* List item
+  * Nested item
+  * Nested item
+* List item
+
+Aute excepteur officia sunt veniam tempor consequat do do nisi ullamco laboris. Nisi irure laboris sint veniam. Deserunt aute irure in sit.
+
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>article</span><span class="token punctuation">></span></span></code></pre>
+
           </div>
         </section>
       </main>
@@ -202,7 +196,7 @@
             </p>
             <p>
               Updated on:
-              <time datetime="2024-06-06T20:46:34.904Z" class="block">06/06/2024</time>
+              <time datetime="2024-06-08T15:06:06.528Z" class="block">06/08/2024</time>
             </p>
           </div>
         </div>
@@ -212,7 +206,7 @@
 
     
 
-    <script src="/11ty-twind/_assets/js/_app.js?v=20245620"></script>
+    <script src="/11ty-twind/_assets/js/_app.js?v=20245815"></script>
 
   </body>
 
