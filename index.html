@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en" class="bg-transparent antialiased">
+<html lang="en" class="bg-transparent antialiased" x-data>
 
   <head>
     <meta charset="utf-8" />
@@ -89,27 +89,31 @@
   <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>button</span><span class="token punctuation">></span></span>
 <span class="token twig language-twig"><span class="token delimiter punctuation">{%-</span> <span class="token tag-name keyword">endmacro</span> <span class="token delimiter punctuation">-%}</span></span>
 
-
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>button</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>button<span class="token punctuation">"</span></span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>w-9 h-9 max-w-[18rem] inline-flex items-center justify-center gap-1 rounded-lg motion-safe:(transition) bg-orange-500 text-black/90 hover:(bg-orange-600)<span class="token punctuation">"</span></span> <span class="token attr-name">aria-label</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>check<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>span</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>text-xl flex-(&amp; shrink-0) opacity-70<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>iconify-icon</span> <span class="token attr-name">icon</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>mdi:check<span class="token punctuation">"</span></span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>m-auto<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>iconify-icon</span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>span</span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>button</span><span class="token punctuation">></span></span>```
-
-***
-
-### Another heading
-
-> Commodo irure laboris incididunt anim veniam non ea et nisi ea. Nostrud pariatur ipsum aliqua sit consequat occaecat velit enim enim ex consectetur anim sunt id.
-
-Non pariatur excepteur ut laboris ut. Consectetur reprehenderit id aute et eu et est deserunt ipsum laborum cillum cupidatat. Ad aliqua et pariatur pariatur consectetur magna non eiusmod commodo veniam fugiat. Mollit commodo commodo adipisicing culpa officia veniam proident ut sint reprehenderit culpa culpa est mollit. Nisi incididunt ipsum qui in amet enim sint dolore elit eiusmod est.
-
-* List item
-* List item
-  * Nested item
-  * Nested item
-* List item
-
-Aute excepteur officia sunt veniam tempor consequat do do nisi ullamco laboris. Nisi irure laboris sint veniam. Deserunt aute irure in sit.
-
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>article</span><span class="token punctuation">></span></span></code></pre>
-
+<span class="token twig language-twig"><span class="token comment">{# _site/some-page.njk #}</span></span>
+<span class="token twig language-twig"><span class="token delimiter punctuation">{%-</span> <span class="token tag-name keyword">from</span> <span class="token string"><span class="token punctuation">'</span>macro.button.njk<span class="token punctuation">'</span></span> import button <span class="token delimiter punctuation">-%}</span></span>
+<span class="token twig language-twig"><span class="token delimiter punctuation">{{</span> button<span class="token punctuation">(</span><span class="token punctuation">{</span>
+  color<span class="token punctuation">:</span> <span class="token string"><span class="token punctuation">'</span>orange<span class="token punctuation">'</span></span><span class="token punctuation">,</span>
+  icon<span class="token punctuation">:</span> <span class="token string"><span class="token punctuation">'</span>mdi:check<span class="token punctuation">'</span></span><span class="token punctuation">,</span>
+  props<span class="token punctuation">:</span> <span class="token string"><span class="token punctuation">'</span> aria-label="check"<span class="token punctuation">'</span></span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span> <span class="token delimiter punctuation">}}</span></span></code></pre>
+<hr>
+<h3>Another heading</h3>
+<blockquote>
+<p>Commodo irure laboris incididunt anim veniam non ea et nisi ea. Nostrud pariatur ipsum aliqua sit consequat occaecat velit enim enim ex consectetur anim sunt id.</p>
+</blockquote>
+<p>Non pariatur excepteur ut laboris ut. Consectetur reprehenderit id aute et eu et est deserunt ipsum laborum cillum cupidatat. Ad aliqua et pariatur pariatur consectetur magna non eiusmod commodo veniam fugiat. Mollit commodo commodo adipisicing culpa officia veniam proident ut sint reprehenderit culpa culpa est mollit. Nisi incididunt ipsum qui in amet enim sint dolore elit eiusmod est.</p>
+<ul>
+<li>List item</li>
+<li>List item
+<ul>
+<li>Nested item</li>
+<li>Nested item</li>
+</ul>
+</li>
+<li>List item</li>
+</ul>
+<p>Aute excepteur officia sunt veniam tempor consequat do do nisi ullamco laboris. Nisi irure laboris sint veniam. Deserunt aute irure in sit.</p>
+</article>
           </div>
         </section>
       </main>
@@ -196,16 +200,13 @@ Aute excepteur officia sunt veniam tempor consequat do do nisi ullamco laboris. 
             </p>
             <p>
               Updated on:
-              <time datetime="2024-06-08T15:06:06.528Z" class="block">06/08/2024</time>
+              <time datetime="2024-06-08T15:13:18.644Z" class="block">06/08/2024</time>
             </p>
           </div>
         </div>
       </footer>
 
     </div>
-
-    
-
     <script src="/11ty-twind/_assets/js/_app.js?v=20245815"></script>
 
   </body>
