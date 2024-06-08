@@ -11,7 +11,7 @@ title: 11ty + Twind
 
 Incididunt exercitation excepteur eu laboris qui et velit exercitation fugiat ut esse. Proident officia deserunt deserunt dolore eu excepteur id sit ex in adipisicing minim. Nisi consectetur est elit consectetur anim in elit quis esse. Veniam irure sint veniam cupidatat culpa pariatur reprehenderit. Anim enim consequat id labore Lorem velit do aliquip reprehenderit. { .lead }
 
-**Here's an example of a parameterized component:**
+**Here's an example of a [parameterized component](https://github.com/craigerskine/11ty-twind/blob/main/_site/_includes/macro.button.njk):**
 
 {{ button({
   color: 'pri',
@@ -36,24 +36,22 @@ Incididunt exercitation excepteur eu laboris qui et velit exercitation fugiat ut
 }) }} { .flex .flex-wrap .gap-3 }
 
 ```twig{% raw %}
-{# import #}
-{%- from 'macro.button.njk' import button -%}
-
-{# call #}
-{{ button({
-  color: 'orange',
-  icon: 'mdi:check',
-  props: ' aria-label="check"'
-}) }}
-
 {# _includes/macro.button.njk #}
 {%- macro button(param) -%}
-  <button{{ param.props | safe }} class="py-1.5 px-3 bg-{{ param.color }}-500 text-black/90 inline-flex ...">
+  <button{{ param.props | safe }} class="py-1.5 px-3 bg-{{ param.color }}-500 text-black/90 inline-flex ...youGetTheIdea">
     {{ param.label | safe }}
     <iconify-icon icon="{{ param.icon }}"></iconify-icon>
   </button>
 {%- endmacro -%}
-{% endraw %}```
+{% endraw %}
+
+{# _site/some-page.njk #}
+{%- from 'macro.button.njk' import button -%}
+{{ button({
+  color: 'orange',
+  icon: 'mdi:check',
+  props: ' aria-label="check"'
+}) }}```
 
 ***
 
