@@ -2,7 +2,7 @@
 {%- set page_title -%}{{ title +' :: '+ site.meta.title if title else site.meta.title }}{%- endset -%}
 
 <!doctype html>
-<html lang="en" class="bg-transparent antialiased">
+<html lang="en" class="bg-transparent antialiased" x-data>
 
   <head>
     <meta charset="utf-8" />
@@ -137,8 +137,7 @@
 
     </div>
 
-    {% renderblock 'js' %}
-
+    {%- renderblock 'js' %}
     <script src="{{ '/' | url }}_assets/js/_app.js?v={% bust %}"></script>
 
   </body>

@@ -43,7 +43,6 @@ Incididunt exercitation excepteur eu laboris qui et velit exercitation fugiat ut
     <iconify-icon icon="{{ param.icon }}"></iconify-icon>
   </button>
 {%- endmacro -%}
-{% endraw %}
 
 {# _site/some-page.njk #}
 {%- from 'macro.button.njk' import button -%}
@@ -51,7 +50,8 @@ Incididunt exercitation excepteur eu laboris qui et velit exercitation fugiat ut
   color: 'orange',
   icon: 'mdi:check',
   props: ' aria-label="check"'
-}) }}```
+}) }}
+{% endraw %}```
 
 ***
 
