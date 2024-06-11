@@ -6,11 +6,11 @@
 
   {%- set classes -%}
     {%- if param.outline -%}
-      text-{{ color }}-500 ring-(1 inset current) hover:(bg-{{ color }}-500 text-black/90 ring-transparent)
+      text-{{ color }}-600 ring-(1 inset current) hover:(bg-{{ color }}-300 text-black/90 ring-transparent) dark:(text-{{ color }}-500 hover:(bg-{{ color }}-300 text-black/90))
     {%- elseif param.ghost -%}
       text-{{ color }}-500 hover:(bg-{{ color }}-500/10 text-{{ color }}-600)
     {%- else -%}
-      bg-{{ color }}-500 text-black/90 hover:(bg-{{ color }}-600)
+      bg-{{ color }}-400 text-black/90 hover:(bg-{{ color }}-300) dark:(bg-{{ color }}-400 hover:(bg-{{ color }}-300))
     {%- endif -%}
     {%- if param.reverse -%}
       flex-row-reverse

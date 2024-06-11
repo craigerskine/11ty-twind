@@ -42,14 +42,14 @@
 
       <header class="w-full flex-none">
         <nav class="mx-auto border-(b gray-500/20) py-8 px-4 max-w-7xl flex-(& col) items-center gap-4 md:(flex-row justify-between)">
-          <a href="{{ '/' | url }}" class="group text-pri-700/50 flex-(& none) items-center gap-2 transform motion-safe:(transition) hover:(text-pri-500)">
+          <a href="{{ '/' | url }}" class="group text-pri-600 flex-(& none) items-center gap-2 transform motion-safe:(transition) hover:(text-pri-500)">
             <span class="w-12 h-12">{%- include "components/_logo.njk" %}</span>
             <strong class="text-xl font-semibold hidden md:(text-2xl tracking-tight block)">{{ site.meta.title }}</strong>
           </a>
           <ul class="flex items-center gap-4 md:(gap-10)">
             {%- for item in collections.all | eleventyNavigation %}
             <li>
-              <a href="{{ item.url | url }}" class="flex text-pri-600 font-semibold relative motion-safe:(transition) hover:(text-pri-800)">
+              <a href="{{ item.url | url }}" class="flex text-pri-700 font-semibold relative motion-safe:(transition) hover:(text-pri-800) dark:(hover:(text-pri-400))">
                 {{ item.key }}
                 {% if item.url == page.url or item.url in page.url %}<b class="w-full h-[2px] bg-current absolute inset-x-0 -bottom-1 opacity-25"></b>{% endif %}
               </a>
@@ -122,10 +122,10 @@
               {%- endfor %}
             </nav>
           </div>
-          <div class="border-(t gray-500/20) py-3 text-(xs pri-500 center) leading-relaxed space-y-3 md:(py-6 text-start flex-(& wrap) justify-between space-y-0)">
+          <div class="border-(t gray-500/20) py-3 text-(xs gray-500 center) leading-relaxed space-y-3 [&_p+p]:(md:(text-end)) md:(py-6 text-start flex-(& wrap) justify-between space-y-0)">
             <p>
               &copy;{% year %} {{ site.meta.title }}
-              <span class="block">by: <a href="{{ site.meta.author_url }}" class="text-pri-700 motion-safe:(transition) hover:(text-pri-900)">{{ site.meta.author }}</a></span>
+              <span class="block">by: <a href="{{ site.meta.author_url }}" class="text-pri-700 font-medium motion-safe:(transition) hover:(text-pri-900)">{{ site.meta.author }}</a></span>
             </p>
             <p>
               Updated on:

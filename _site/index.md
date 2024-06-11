@@ -5,7 +5,7 @@ title: 11ty + Twind
 
 {%- from 'macro.button.njk' import button -%}
 
-<article class="prose prose-a:(text-pri-500) prose-headings:(text-wrap-balance) prose-pre:(bg-gray-800 dark:bg-gray-800) mx-auto max-w-4xl">
+<article class="{{ site.prose }}">
 
 ## Intro heading
 
