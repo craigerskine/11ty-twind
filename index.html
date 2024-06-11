@@ -37,7 +37,7 @@
 
       <header class="w-full flex-none">
         <nav class="mx-auto border-(b gray-500/20) py-8 px-4 max-w-7xl flex-(& col) items-center gap-4 md:(flex-row justify-between)">
-          <a href="/11ty-twind/" class="group text-pri-700/50 flex-(& none) items-center gap-2 transform motion-safe:(transition) hover:(text-pri-500)">
+          <a href="/11ty-twind/" class="group text-pri-600 flex-(& none) items-center gap-2 transform motion-safe:(transition) hover:(text-pri-500)">
             <span class="w-12 h-12"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" class="text-current fill-current motion-safe:(transition) group-hover:(rotate-45)" role="img">
   <title>11ty Twind</title>
   <path d="m49.9997864 52.8277864 33.9127303 33.914098c-8.9121413 8.2299265-20.8251307 13.2581156-33.9125167 13.2581156-13.0878756 0-25.0012668-5.0285653-33.9135169-13.2590393zm-36.7407471-36.7413033 33.9127471 33.9133033-33.9127471 33.9137305c-8.23047398-8.9122501-13.2590393-20.8256413-13.2590393-33.9135169s5.02856532-25.0012668 13.2590393-33.9135169zm73.4819214 0c8.230474 8.9122501 13.2590393 20.8256413 13.2590393 33.9135169 0 13.087386-5.0281891 25.0003754-13.2581156 33.9125167l-33.914098-33.9127303zm-36.7409607-16.0864831c13.0878756 0 25.0012668 5.02856532 33.9135169 13.2590393l-33.9137305 33.9127471-33.9133033-33.9127471c8.9122501-8.23047398 20.8256413-13.2590393 33.9135169-13.2590393z" fill-rule="evenodd" />
@@ -46,13 +46,13 @@
           </a>
           <ul class="flex items-center gap-4 md:(gap-10)">
             <li>
-              <a href="/11ty-twind/products/" class="flex text-pri-600 font-semibold relative motion-safe:(transition) hover:(text-pri-800)">
+              <a href="/11ty-twind/products/" class="flex text-pri-700 font-semibold relative motion-safe:(transition) hover:(text-pri-800) dark:(hover:(text-pri-400))">
                 Products
                 
               </a>
             </li>
             <li>
-              <a href="/11ty-twind/support/" class="flex text-pri-600 font-semibold relative motion-safe:(transition) hover:(text-pri-800)">
+              <a href="/11ty-twind/support/" class="flex text-pri-700 font-semibold relative motion-safe:(transition) hover:(text-pri-800) dark:(hover:(text-pri-400))">
                 Support
                 
               </a>
@@ -76,11 +76,11 @@
   </span>
 </h1>
 
-            <article class="prose prose-a:(text-pri-500) prose-headings:(text-wrap-balance) prose-pre:(bg-gray-800 dark:bg-gray-800) mx-auto max-w-4xl">
+            <article class="prose prose-a:(text-pri-700 dark:(text-pri-500)) prose-headings:(text-wrap-balance) prose-pre:(bg-gray-800 dark:bg-gray-800) mx-auto max-w-4xl">
 <h2>Intro heading</h2>
 <p class="lead">Incididunt exercitation excepteur eu laboris qui et velit exercitation fugiat ut esse. Proident officia deserunt deserunt dolore eu excepteur id sit ex in adipisicing minim. Nisi consectetur est elit consectetur anim in elit quis esse.</p>
 <p><strong>Here's an example of a <a href="https://github.com/craigerskine/11ty-twind/blob/main/_site/_includes/macro.button.njk">parameterized component</a>:</strong></p>
-<p class="p-8 flex flex-wrap items-center justify-center gap-3"><button type="button" class="py-1.5 px-3 max-w-[18rem] inline-flex items-center justify-center gap-1 rounded-lg motion-safe:(transition) bg-pri-500 text-black/90 hover:(bg-pri-600)"><span class="min-w-0 flex-1 truncate">Primary</span></button> <button type="button" class="py-1.5 px-3 max-w-[18rem] inline-flex items-center justify-center gap-1 rounded-lg motion-safe:(transition) text-sec-500 ring-(1 inset current) hover:(bg-sec-500 text-black/90 ring-transparent)"><span class="min-w-0 flex-1 truncate">Secondary</span></button> <button type="button" class="py-1.5 px-3 max-w-[18rem] inline-flex items-center justify-center gap-1 rounded-lg motion-safe:(transition) text-neutral-500 hover:(bg-neutral-500/10 text-neutral-600)"><span class="min-w-0 flex-1 truncate">Ghost</span></button> <button type="button" class="w-9 h-9 max-w-[18rem] inline-flex items-center justify-center gap-1 rounded-full motion-safe:(transition) bg-orange-500 text-black/90 hover:(bg-orange-600)flex-row-reverse" aria-label="check"><span class="flex-(& shrink-0) opacity-70"><iconify-icon icon="mdi:check" width="1.5em" height="1.5em" class="m-auto"></iconify-icon></span></button> <button type="button" class="py-1.5 px-3 max-w-[18rem] inline-flex items-center justify-center gap-1 rounded-lg motion-safe:(transition) bg-neutral-500 text-black/90 hover:(bg-neutral-600)"><span class="min-w-0 flex-1 truncate">Truncate super long button labels like this</span></button></p>
+<p class="p-8 flex flex-wrap items-center justify-center gap-3"><button type="button" class="py-1.5 px-3 max-w-[18rem] inline-flex items-center justify-center gap-1 rounded-lg motion-safe:(transition) bg-pri-400 text-black/90 hover:(bg-pri-300) dark:(bg-pri-400 hover:(bg-pri-300))"><span class="min-w-0 flex-1 truncate">Primary</span></button> <button type="button" class="py-1.5 px-3 max-w-[18rem] inline-flex items-center justify-center gap-1 rounded-lg motion-safe:(transition) text-sec-600 ring-(1 inset current) hover:(bg-sec-300 text-black/90 ring-transparent) dark:(text-sec-500 hover:(bg-sec-300 text-black/90))"><span class="min-w-0 flex-1 truncate">Secondary</span></button> <button type="button" class="py-1.5 px-3 max-w-[18rem] inline-flex items-center justify-center gap-1 rounded-lg motion-safe:(transition) text-neutral-500 hover:(bg-neutral-500/10 text-neutral-600)"><span class="min-w-0 flex-1 truncate">Ghost</span></button> <button type="button" class="w-9 h-9 max-w-[18rem] inline-flex items-center justify-center gap-1 rounded-full motion-safe:(transition) bg-orange-400 text-black/90 hover:(bg-orange-300) dark:(bg-orange-400 hover:(bg-orange-300))flex-row-reverse" aria-label="check"><span class="flex-(& shrink-0) opacity-70"><iconify-icon icon="mdi:check" width="1.5em" height="1.5em" class="m-auto"></iconify-icon></span></button> <button type="button" class="py-1.5 px-3 max-w-[18rem] inline-flex items-center justify-center gap-1 rounded-lg motion-safe:(transition) bg-neutral-400 text-black/90 hover:(bg-neutral-300) dark:(bg-neutral-400 hover:(bg-neutral-300))"><span class="min-w-0 flex-1 truncate">Truncate super long button labels like this</span></button></p>
 <pre class="language-twig"><code class="language-twig"><span class="token twig language-twig"><span class="token comment">{# _includes/macro.button.njk #}</span></span>
 <span class="token twig language-twig"><span class="token delimiter punctuation">{%-</span> <span class="token tag-name keyword">macro</span> button<span class="token punctuation">(</span>param<span class="token punctuation">)</span> <span class="token delimiter punctuation">-%}</span></span>
   <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>button<span class="token twig language-twig"><span class="token delimiter punctuation">{{</span> param<span class="token punctuation">.</span>props <span class="token operator">|</span> safe <span class="token delimiter punctuation">}}</span></span></span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>py-1.5 px-3 bg-<span class="token twig language-twig"><span class="token delimiter punctuation">{{</span> param<span class="token punctuation">.</span>color <span class="token delimiter punctuation">}}</span></span>-500 text-black/90 inline-flex ...youGetTheIdea<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
@@ -193,14 +193,14 @@
               </ul>
             </nav>
           </div>
-          <div class="border-(t gray-500/20) py-3 text-(xs pri-500 center) leading-relaxed space-y-3 md:(py-6 text-start flex-(& wrap) justify-between space-y-0)">
+          <div class="border-(t gray-500/20) py-3 text-(xs gray-500 center) leading-relaxed space-y-3 [&_p+p]:(md:(text-end)) md:(py-6 text-start flex-(& wrap) justify-between space-y-0)">
             <p>
               &copy;2024 11ty Twind
-              <span class="block">by: <a href="https://craigerskine.com" class="text-pri-700 motion-safe:(transition) hover:(text-pri-900)">Craig Erskine</a></span>
+              <span class="block">by: <a href="https://craigerskine.com" class="text-pri-700 font-medium motion-safe:(transition) hover:(text-pri-900)">Craig Erskine</a></span>
             </p>
             <p>
               Updated on:
-              <time datetime="2024-06-11T13:29:38.695Z" class="block">06/11/2024</time>
+              <time datetime="2024-06-11T13:59:29.114Z" class="block">06/11/2024</time>
             </p>
           </div>
         </div>
