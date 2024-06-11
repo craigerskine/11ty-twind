@@ -9,21 +9,21 @@ title: 11ty + Twind
 
 ## Intro heading
 
-Incididunt exercitation excepteur eu laboris qui et velit exercitation fugiat ut esse. Proident officia deserunt deserunt dolore eu excepteur id sit ex in adipisicing minim. Nisi consectetur est elit consectetur anim in elit quis esse. Veniam irure sint veniam cupidatat culpa pariatur reprehenderit. Anim enim consequat id labore Lorem velit do aliquip reprehenderit. { .lead }
+Incididunt exercitation excepteur eu laboris qui et velit exercitation fugiat ut esse. Proident officia deserunt deserunt dolore eu excepteur id sit ex in adipisicing minim. Nisi consectetur est elit consectetur anim in elit quis esse. { .lead }
 
 **Here's an example of a [parameterized component](https://github.com/craigerskine/11ty-twind/blob/main/_site/_includes/macro.button.njk):**
 
 {{ button({
   color: 'pri',
-  label: 'Primary'
+  slot: 'Primary'
 }) }} {{ button({
   outline: true,
   color: 'sec',
-  label: 'Secondary'
+  slot: 'Secondary'
 }) }} {{ button({
   ghost: true,
   color: 'neutral',
-  label: 'Ghost'
+  slot: 'Ghost'
 }) }} {{ button({
   color: 'orange',
   icon: 'mdi:check',
@@ -32,15 +32,15 @@ Incididunt exercitation excepteur eu laboris qui et velit exercitation fugiat ut
   props: ' aria-label="check"'
 }) }} {{ button({
   color: 'neutral',
-  label: 'Truncate super long button labels like this'
-}) }} { .flex .flex-wrap .gap-3 }
+  slot: 'Truncate super long button labels like this'
+}) }} { .p-8 .flex .flex-wrap .items-center .justify-center .gap-3 }
 
 ```twig{% raw %}
 {# _includes/macro.button.njk #}
 {%- macro button(param) -%}
   <button{{ param.props | safe }} class="py-1.5 px-3 bg-{{ param.color }}-500 text-black/90 inline-flex ...youGetTheIdea">
-    {{ param.label | safe }}
-    <iconify-icon icon="{{ param.icon }}"></iconify-icon>
+    {{ param.slot | safe }}
+    {%- if param.icon %}<iconify-icon icon="{{ param.icon }}"></iconify-icon>{%- endif %}
   </button>
 {%- endmacro -%}
 

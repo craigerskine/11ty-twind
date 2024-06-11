@@ -2,6 +2,8 @@
 layout: 'layouts/default.njk'
 ---
 
+{%- from 'macro.button.njk' import button -%}
+
 <div class="mx-auto max-w-xl lg:(max-w-none grid-(& cols-2) gap-16)">
   <aside class="lg:(order-last)">
     <figure class="mx-auto max-w-4xl">
@@ -28,5 +30,10 @@ layout: 'layouts/default.njk'
 </div>
 
 <nav class="pt-12 flex justify-center">
-  <a href="../" class="ring-(1 pri-500/20) w-12 h-12 text-2xl flex rounded-full motion-safe:(transition) hover:(bg-pri-600 text-pri-100)"><iconify-icon icon="mdi:chevron-left" inline="false" class="iconify m-auto"></iconify-icon></a>
+  {{ button({
+    href: '../',
+    outline: true,
+    circle: true,
+    icon: 'mdi:chevron-left'
+  }) }}
 </nav>
