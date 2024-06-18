@@ -24,7 +24,7 @@
     "@twind/preset-line-clamp": "^1.0.7",
     "@twind/preset-tailwind": "^1.1.4",
     "@twind/preset-typography": "^1.0.7",
-    "alpinejs": "^3.13.10",
+    "alpinejs": "^3.14.1",
     "clean-css": "^5.3.3",
     "esbuild": "^0.17.10",
     "iconify-icon": "^2.0.0",
