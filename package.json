@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "private": false,
   "scripts": {
-    "start": "eleventy --serve",
+    "start": "eleventy --serve --quiet",
     "build": "eleventy",
     "ghpages": "eleventy --pathprefix=11ty-twind"
   },
