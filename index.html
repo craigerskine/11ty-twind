@@ -80,7 +80,6 @@
 <h2>Intro heading</h2>
 <p class="lead">Incididunt exercitation excepteur eu laboris qui et velit exercitation fugiat ut esse. Proident officia deserunt deserunt dolore eu excepteur id sit ex in adipisicing minim. Nisi consectetur est elit consectetur anim in elit quis esse.</p>
 <p><strong>Here's an example of a <a href="https://github.com/craigerskine/11ty-twind/blob/main/_site/_includes/macro.button.njk">parameterized component</a>:</strong></p>
-<p class="p-8 flex flex-wrap items-center justify-center gap-3"><button type="button" class="py-1.5 px-3 max-w-[18rem] inline-flex items-center justify-center gap-1 rounded-lg motion-safe:(transition) bg-pri-400 text-black/90 hover:(bg-pri-300) dark:(bg-pri-400 hover:(bg-pri-300))"><span class="min-w-0 flex-1 truncate">Primary</span></button> <button type="button" class="py-1.5 px-3 max-w-[18rem] inline-flex items-center justify-center gap-1 rounded-lg motion-safe:(transition) text-sec-600 ring-(1 inset current) hover:(bg-sec-300 text-black/90 ring-transparent) dark:(text-sec-500 hover:(bg-sec-300 text-black/90))"><span class="min-w-0 flex-1 truncate">Secondary</span></button> <button type="button" class="py-1.5 px-3 max-w-[18rem] inline-flex items-center justify-center gap-1 rounded-lg motion-safe:(transition) text-neutral-500 hover:(bg-neutral-500/10 text-neutral-600)"><span class="min-w-0 flex-1 truncate">Ghost</span></button> <button type="button" class="w-9 h-9 max-w-[18rem] inline-flex items-center justify-center gap-1 rounded-full motion-safe:(transition) bg-orange-400 text-black/90 hover:(bg-orange-300) dark:(bg-orange-400 hover:(bg-orange-300))flex-row-reverse" aria-label="check"><span class="flex-(& shrink-0) opacity-70"><iconify-icon icon="mdi:check" width="1.5em" height="1.5em" class="m-auto"></iconify-icon></span></button> <button type="button" class="py-1.5 px-3 max-w-[18rem] inline-flex items-center justify-center gap-1 rounded-lg motion-safe:(transition) bg-neutral-400 text-black/90 hover:(bg-neutral-300) dark:(bg-neutral-400 hover:(bg-neutral-300))"><span class="min-w-0 flex-1 truncate">Truncate super long button labels like this</span></button></p>
 <pre class="language-twig"><code class="language-twig"><span class="token twig language-twig"><span class="token comment">{# _includes/macro.button.njk #}</span></span>
 <span class="token twig language-twig"><span class="token delimiter punctuation">{%-</span> <span class="token tag-name keyword">macro</span> button<span class="token punctuation">(</span>param<span class="token punctuation">)</span> <span class="token delimiter punctuation">-%}</span></span>
   <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>button<span class="token twig language-twig"><span class="token delimiter punctuation">{{</span> param<span class="token punctuation">.</span>props <span class="token operator">|</span> safe <span class="token delimiter punctuation">}}</span></span></span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>py-1.5 px-3 bg-<span class="token twig language-twig"><span class="token delimiter punctuation">{{</span> param<span class="token punctuation">.</span>color <span class="token delimiter punctuation">}}</span></span>-500 text-black/90 inline-flex ...youGetTheIdea<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
@@ -96,8 +95,9 @@
   icon<span class="token punctuation">:</span> <span class="token string"><span class="token punctuation">'</span>mdi:check<span class="token punctuation">'</span></span><span class="token punctuation">,</span>
   props<span class="token punctuation">:</span> <span class="token string"><span class="token punctuation">'</span> aria-label="check"<span class="token punctuation">'</span></span>
 <span class="token punctuation">}</span><span class="token punctuation">)</span> <span class="token delimiter punctuation">}}</span></span></code></pre>
+<p class="p-8 flex flex-wrap items-center justify-center gap-3"><button type="button" class="max-w-[18rem] inline-flex items-center justify-center gap-1 motion-safe:(transition)  bg-pri-400 text-black/90 hover:(bg-pri-300) dark:(bg-pri-400 hover:(bg-pri-300)) py-1.5 px-3 rounded-lg"><span class="min-w-0 flex-1 truncate">Contained</span></button> <button type="button" class="max-w-[18rem] inline-flex items-center justify-center gap-1 motion-safe:(transition)  text-sec-600 ring-(1 inset current) hover:(bg-sec-300 text-black/90 ring-transparent) dark:(text-sec-500 hover:(bg-sec-300 text-black/90)) py-1.5 px-3 rounded-lg"><span class="min-w-0 flex-1 truncate">Outline</span></button> <button type="button" class="max-w-[18rem] inline-flex items-center justify-center gap-1 motion-safe:(transition)  text-neutral-500 hover:(bg-neutral-500/10 text-neutral-600) py-1.5 px-3 rounded-lg"><span class="min-w-0 flex-1 truncate">Ghost</span></button> <button type="button" class="max-w-[18rem] inline-flex items-center justify-center gap-1 motion-safe:(transition)  bg-orange-400 text-black/90 hover:(bg-orange-300) dark:(bg-orange-400 hover:(bg-orange-300)) w-9 h-9 rounded-full" aria-label="check"><span class="flex-(& shrink-0) opacity-70"><iconify-icon icon="mdi:check" width="1.5em" height="1.5em" class="m-auto"></iconify-icon></span></button> <button type="button" class="max-w-[18rem] inline-flex items-center justify-center gap-1 motion-safe:(transition)  bg-neutral-400 text-black/90 hover:(bg-neutral-300) dark:(bg-neutral-400 hover:(bg-neutral-300)) py-1.5 px-3 rounded-lg"><span class="min-w-0 flex-1 truncate">Truncate super long button labels like this</span></button></p>
 <hr>
-<h3>Another heading</h3>
+<h3>Some Typography</h3>
 <blockquote>
 <p>Commodo irure laboris incididunt anim veniam non ea et nisi ea. Nostrud pariatur ipsum aliqua sit consequat occaecat velit enim enim ex consectetur anim sunt id.</p>
 </blockquote>
@@ -200,14 +200,14 @@
             </p>
             <p>
               Updated on:
-              <time datetime="2024-06-25T18:21:07.114Z" class="block">06/25/2024</time>
+              <time datetime="2024-07-02T20:20:22.503Z" class="block">07/02/2024</time>
             </p>
           </div>
         </div>
       </footer>
 
     </div>
-    <script src="/11ty-twind/_assets/js/_app.js?v=202452518"></script>
+    <script src="/11ty-twind/_assets/js/_app.js?v=20246220"></script>
 
   </body>
 
