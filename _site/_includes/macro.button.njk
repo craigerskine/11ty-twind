@@ -1,3 +1,14 @@
+{#-
+  color: {tailwind colors}
+  outline: boolean (bordered)
+  ghost: boolean
+  reverse: boolean
+  href: string
+  icon: string (if slot is empty the button will be 1:1)
+  circle: boolean
+  slot: string (label)
+  props: string (great for apline)
+-#}
 {%- macro button(param) -%}
 
   {%- set color -%}
@@ -5,19 +16,21 @@
   {%- endset -%}
 
   {%- set classes -%}
-    {%- if param.outline -%}
-      text-{{ color }}-600 ring-(1 inset current) hover:(bg-{{ color }}-300 text-black/90 ring-transparent) dark:(text-{{ color }}-500 hover:(bg-{{ color }}-300 text-black/90))
-    {%- elseif param.ghost -%}
-      text-{{ color }}-500 hover:(bg-{{ color }}-500/10 text-{{ color }}-600)
-    {%- else -%}
-      bg-{{ color }}-400 text-black/90 hover:(bg-{{ color }}-300) dark:(bg-{{ color }}-400 hover:(bg-{{ color }}-300))
-    {%- endif -%}
-    {%- if param.reverse -%}
-      flex-row-reverse
-    {%- endif -%}
+    {#- outline -#}
+    {%- if param.outline %} text-{{ color }}-600 ring-(1 inset current) hover:(bg-{{ color }}-300 text-black/90 ring-transparent) dark:(text-{{ color }}-500 hover:(bg-{{ color }}-300 text-black/90))
+    {#- ghost -#}
+    {%- elseif param.ghost %} text-{{ color }}-500 hover:(bg-{{ color }}-500/10 text-{{ color }}-600)
+    {#- contained -#}
+    {%- else %} bg-{{ color }}-400 text-black/90 hover:(bg-{{ color }}-300) dark:(bg-{{ color }}-400 hover:(bg-{{ color }}-300)){%- endif %}
+    {#- square -#}
+    {%- if not param.slot and param.icon %} w-9 h-9{%- else %} py-1.5 px-3{%- endif %}
+    {#- circle -#}
+    {%- if param.circle %} rounded-full{%- else %} rounded-lg{%- endif %}
+    {#- reverse -#}
+    {%- if param.reverse %} flex-row-reverse{%- endif %}
   {%- endset -%}
 
-  <{% if param.href %}a href="{{ param.href }}"{% else %}button type="button"{% endif %} class="{% if not param.slot and param.icon %}w-9 h-9{% else %}py-1.5 px-3{% endif %} max-w-[18rem] inline-flex items-center justify-center gap-1 {% if param.circle %}rounded-full{% else %}rounded-lg{% endif %} motion-safe:(transition) {{ classes }}"{{ param.props | safe }}>
+  <{% if param.href %}a href="{{ param.href }}"{% else %}button type="button"{% endif %} class="max-w-[18rem] inline-flex items-center justify-center gap-1 motion-safe:(transition) {{ classes }}"{{ param.props | safe }}>
     {%- if param.slot -%}<span class="min-w-0 flex-1 truncate">{{ param.slot | safe }}</span>{%- endif -%}
     {%- if param.icon -%}<span class="flex-(& shrink-0) opacity-70"><iconify-icon icon="{{ param.icon }}" width="1.5em" height="1.5em" class="m-auto"></iconify-icon></span>{%- endif -%}
   </{% if param.href %}a{% else %}button{% endif %}>

@@ -13,28 +13,6 @@ Incididunt exercitation excepteur eu laboris qui et velit exercitation fugiat ut
 
 **Here's an example of a [parameterized component](https://github.com/craigerskine/11ty-twind/blob/main/_site/_includes/macro.button.njk):**
 
-{{ button({
-  color: 'pri',
-  slot: 'Primary'
-}) }} {{ button({
-  outline: true,
-  color: 'sec',
-  slot: 'Secondary'
-}) }} {{ button({
-  ghost: true,
-  color: 'neutral',
-  slot: 'Ghost'
-}) }} {{ button({
-  color: 'orange',
-  icon: 'mdi:check',
-  circle: true,
-  reverse: true,
-  props: ' aria-label="check"'
-}) }} {{ button({
-  color: 'neutral',
-  slot: 'Truncate super long button labels like this'
-}) }} { .p-8 .flex .flex-wrap .items-center .justify-center .gap-3 }
-
 ```twig{% raw %}
 {# _includes/macro.button.njk #}
 {%- macro button(param) -%}
@@ -53,9 +31,30 @@ Incididunt exercitation excepteur eu laboris qui et velit exercitation fugiat ut
 }) }}
 {% endraw %}```
 
+{{ button({
+  color: 'pri',
+  slot: 'Contained'
+}) }} {{ button({
+  outline: true,
+  color: 'sec',
+  slot: 'Outline'
+}) }} {{ button({
+  ghost: true,
+  color: 'neutral',
+  slot: 'Ghost'
+}) }} {{ button({
+  color: 'orange',
+  icon: 'mdi:check',
+  circle: true,
+  props: ' aria-label="check"'
+}) }} {{ button({
+  color: 'neutral',
+  slot: 'Truncate super long button labels like this'
+}) }} { .p-8 .flex .flex-wrap .items-center .justify-center .gap-3 }
+
 ***
 
-### Another heading
+### Some Typography
 
 > Commodo irure laboris incididunt anim veniam non ea et nisi ea. Nostrud pariatur ipsum aliqua sit consequat occaecat velit enim enim ex consectetur anim sunt id.
 
