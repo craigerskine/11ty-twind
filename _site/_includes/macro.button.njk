@@ -1,5 +1,5 @@
 {#-
-  color: {tailwind colors}
+  color: {tailwindcss colors sans-shade}
   outline: boolean (bordered)
   ghost: boolean
   reverse: boolean
@@ -7,11 +7,12 @@
   icon: string (if slot is empty the button will be 1:1)
   circle: boolean
   slot: string (label)
-  props: string (great for apline)
+  props: string (great for stuff like alpine or aria attrs)
 -#}
 {%- macro button(param) -%}
 
   {%- set color -%}
+    {#- colors -#}
     {{- param.color if param.color else 'pri' -}}
   {%- endset -%}
 
@@ -30,7 +31,7 @@
     {%- if param.reverse %} flex-row-reverse{%- endif %}
   {%- endset -%}
 
-  <{% if param.href %}a href="{{ param.href }}"{% else %}button type="button"{% endif %} class="max-w-[18rem] inline-flex items-center justify-center gap-1 motion-safe:(transition) {{ classes }}"{{ param.props | safe }}>
+  <{% if param.href %}a href="{{ param.href }}"{% else %}button type="button"{% endif %} class="max-w-[18rem] inline-flex items-center justify-center gap-2 motion-safe:(transition) {{ classes }}"{{ param.props | safe }}>
     {%- if param.slot -%}<span class="min-w-0 flex-1 truncate">{{ param.slot | safe }}</span>{%- endif -%}
     {%- if param.icon -%}<span class="flex-(& shrink-0) opacity-70"><iconify-icon icon="{{ param.icon }}" width="1.5em" height="1.5em" class="m-auto"></iconify-icon></span>{%- endif -%}
   </{% if param.href %}a{% else %}button{% endif %}>

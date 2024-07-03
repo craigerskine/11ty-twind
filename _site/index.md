@@ -9,9 +9,9 @@ title: 11ty + Twind
 
 ## Intro heading
 
-Incididunt exercitation excepteur eu laboris qui et velit exercitation fugiat ut esse. Proident officia deserunt deserunt dolore eu excepteur id sit ex in adipisicing minim. Nisi consectetur est elit consectetur anim in elit quis esse. { .lead }
+Twind is Tailwind but without the build step. It also comes with a ton of cool options for stuff like auto-dark, grouping, arbitrary one-offs, and much much more. And since it's live, you can do stuff like partial class assembly `:class="'bg-'+ color +'-500/'+ opacity"` { .lead }
 
-**Here's an example of a [parameterized component](https://github.com/craigerskine/11ty-twind/blob/main/_site/_includes/macro.button.njk):**
+**Included in this kit is also an example of a [parameterized component](https://github.com/craigerskine/11ty-twind/blob/main/_site/_includes/macro.button.njk):**
 
 ```twig{% raw %}
 {# _includes/macro.button.njk #}
@@ -42,6 +42,12 @@ Incididunt exercitation excepteur eu laboris qui et velit exercitation fugiat ut
   ghost: true,
   color: 'neutral',
   slot: 'Ghost'
+}) }} {{ button({
+  color: 'fuchsia',
+  icon: 'mdi:login',
+  reverse: true,
+  circle: true,
+  slot: 'Icon + Label'
 }) }} {{ button({
   color: 'orange',
   icon: 'mdi:check',
