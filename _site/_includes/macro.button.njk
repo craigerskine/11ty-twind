@@ -3,10 +3,11 @@
   outline: boolean (bordered)
   ghost: boolean
   reverse: boolean
-  href: string
-  icon: string (if slot is empty the button will be 1:1)
-  circle: boolean
-  slot: string (label)
+  href: string (if undefined will render as <button>)
+  icon: string (if slot is undefined will render as 1:1)
+  circle: boolean (full rounded corners)
+  sharp: boolean (no rounded corners)
+  slot: string (children)
   props: string (great for stuff like alpine or aria attrs)
 -#}
 {%- macro button(param) -%}
@@ -18,21 +19,23 @@
 
   {%- set classes -%}
     {#- outline -#}
-    {%- if param.outline %} text-{{ color }}-600 ring-(1 inset current) hover:(bg-{{ color }}-300 text-black/90 ring-transparent) dark:(text-{{ color }}-500 hover:(bg-{{ color }}-300 text-black/90))
+    {%- if param.outline %} text-{{ color }}-600 ring-(1 inset current) hover:(bg-{{ color }}-300 text-black/90 ring-transparent) focus:(outline-(& 2 offset-2 current)) dark:(text-{{ color }}-500 hover:(bg-{{ color }}-300 text-black/90))
     {#- ghost -#}
-    {%- elseif param.ghost %} text-{{ color }}-500 hover:(bg-{{ color }}-500/10 text-{{ color }}-600)
+    {%- elseif param.ghost %} text-{{ color }}-500 hover:(bg-{{ color }}-500/10 text-{{ color }}-600) focus:(outline-(& 2 offset-2 current))
     {#- contained -#}
-    {%- else %} bg-{{ color }}-400 text-black/90 hover:(bg-{{ color }}-300) dark:(bg-{{ color }}-400 hover:(bg-{{ color }}-300)){%- endif %}
+    {%- else %} bg-{{ color }}-400 text-black/90 hover:(bg-{{ color }}-300) focus:(outline-(& 2 offset-2 {{ color }}-300/100)) dark:(bg-{{ color }}-400 hover:(bg-{{ color }}-300) focus:(outline-{{ color }}-400)){%- endif %}
     {#- square -#}
-    {%- if not param.slot and param.icon %} w-9 h-9{%- else %} py-1.5 px-3{%- endif %}
+    {%- if not param.slot and param.icon %} w-8 h-8{%- else %} py-[.5em] px-[1em]{%- endif %}
     {#- circle -#}
-    {%- if param.circle %} rounded-full{%- else %} rounded-lg{%- endif %}
+    {%- if param.circle %} rounded-full{%- elseif param.sharp %} rounded-none{%- else %} rounded-[.3em]{%- endif %}
     {#- reverse -#}
     {%- if param.reverse %} flex-row-reverse{%- endif %}
+    {#- size -#}
+    {%- if param.size %} text-{{ param.size }}{%- endif %}
   {%- endset -%}
 
-  <{% if param.href %}a href="{{ param.href }}"{% else %}button type="button"{% endif %} class="max-w-[18rem] inline-flex items-center justify-center gap-2 motion-safe:(transition) {{ classes }}"{{ param.props | safe }}>
+  <{% if param.href %}a href="{{ param.href }}"{% else %}button type="button"{% endif %} class="max-w-[18rem] leading-none inline-flex items-center justify-center gap-2.5 motion-safe:(transition) {{ classes }}"{{ param.props | safe }}>
     {%- if param.slot -%}<span class="min-w-0 flex-1 truncate">{{ param.slot | safe }}</span>{%- endif -%}
-    {%- if param.icon -%}<span class="flex-(& shrink-0) opacity-70"><iconify-icon icon="{{ param.icon }}" width="1.5em" height="1.5em" class="m-auto"></iconify-icon></span>{%- endif -%}
+    {%- if param.icon -%}<span class="flex-(& shrink-0) opacity-70"><iconify-icon icon="{{ param.icon }}" width="1.5em" height="1.5em" class="-my-3"></iconify-icon></span>{%- endif -%}
   </{% if param.href %}a{% else %}button{% endif %}>
 {%- endmacro -%}
