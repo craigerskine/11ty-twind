@@ -43,7 +43,7 @@
       <header class="w-full flex-none">
         <nav class="mx-auto border-(b gray-500/20) py-8 px-4 max-w-7xl flex-(& col) items-center gap-4 md:(flex-row justify-between)">
           <a href="{{ '/' | url }}" class="group text-pri-600 flex-(& none) items-center gap-2 transform motion-safe:(transition) hover:(text-pri-500)">
-            <span class="w-12 h-12">{%- include "components/_logo.njk" %}</span>
+            <span class="w-12 h-12">{%- include '_logo.njk' %}</span>
             <strong class="text-xl font-semibold hidden md:(text-2xl tracking-tight block)">{{ site.meta.title }}</strong>
           </a>
           <ul class="flex items-center gap-4 md:(gap-10)">
@@ -87,7 +87,7 @@
           <div class="pb-8 text-center space-y-5 md:(pb-12 text-start flex items-start justify-between gap-5 space-y-0)">
             <nav class="flex-none">
               <a href="{{ '/' | url }}" class="group w-10 h-10 text-pri-700/50 inline-flex transform motion-safe:(transition) hover:(text-pri-500)">
-                {%- include "components/_logo.njk" %}
+                {%- include '_logo.njk' %}
               </a>
               <ul class="py-5 text-2xl flex justify-center gap-5 md:(justify-start)">
                 {%- for item in site.social %}
