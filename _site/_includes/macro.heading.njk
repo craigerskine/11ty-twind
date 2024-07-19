@@ -1,0 +1,9 @@
+{%- macro heading(param) %}
+<{{ param.tag if param.tag else 'h1' }} class="pb-12 w-full text-2xl leading-tight font-black flex items-center space-x-4 lg:(text-[calc(3vw)])">
+  {%- if param.divider %}<i class="h-px bg-gray-500/20 flex-1" aria-hidden="true"></i>{%- endif %}
+  <span class="{% if param.divider %}flex-none{% else %}text-center flex-1{% endif %}">
+    {{ param.slot | safe }}
+  </span>
+  {%- if param.divider %}<i class="h-px bg-gray-500/20 flex-1" aria-hidden="true"></i>{%- endif %}
+</{{ param.tag if param.tag else 'h1' }}>
+{%- endmacro %}

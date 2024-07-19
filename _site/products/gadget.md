@@ -2,6 +2,7 @@
 title: Gadget
 img: 0
 rating: 2
+price: 99
 date: 0001-01-01
 ---
 

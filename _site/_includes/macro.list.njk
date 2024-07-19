@@ -1,0 +1,11 @@
+{%- macro list(param) %}
+<ul class="mx-auto max-w-xl grid-(& cols-1) gap-16 lg:(max-w-none grid-cols-3)">
+  {{ param.slot | safe }}
+</ul>
+{%- endmacro %}
+
+{%- macro listItem(param) %}
+<li class="flex">
+  {{ param.slot | safe }}
+</li>
+{%- endmacro %}

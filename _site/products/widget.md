@@ -2,6 +2,7 @@
 title: Widget
 img: 26
 rating: 4
+price: 25
 date: 0003-01-01
 ---
 
