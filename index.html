@@ -36,12 +36,8 @@
     <div class="min-h-screen flex-(& col) relative">
 
       <header class="w-full flex-none">
-        <nav class="mx-auto border-(b gray-500/20) py-8 px-4 max-w-7xl flex-(& col) items-center gap-4 md:(flex-row justify-between)">
-          <a href="/11ty-twind/" class="group text-pri-600 flex-(& none) items-center gap-2 transform motion-safe:(transition) hover:(text-pri-500)">
-            <span class="w-12 h-12"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" class="text-current fill-current motion-safe:(transition) group-hover:(rotate-45)" role="img">
-  <title>11ty Twind</title>
-  <path d="m49.9997864 52.8277864 33.9127303 33.914098c-8.9121413 8.2299265-20.8251307 13.2581156-33.9125167 13.2581156-13.0878756 0-25.0012668-5.0285653-33.9135169-13.2590393zm-36.7407471-36.7413033 33.9127471 33.9133033-33.9127471 33.9137305c-8.23047398-8.9122501-13.2590393-20.8256413-13.2590393-33.9135169s5.02856532-25.0012668 13.2590393-33.9135169zm73.4819214 0c8.230474 8.9122501 13.2590393 20.8256413 13.2590393 33.9135169 0 13.087386-5.0281891 25.0003754-13.2581156 33.9125167l-33.914098-33.9127303zm-36.7409607-16.0864831c13.0878756 0 25.0012668 5.02856532 33.9135169 13.2590393l-33.9137305 33.9127471-33.9133033-33.9127471c8.9122501-8.23047398 20.8256413-13.2590393 33.9135169-13.2590393z" fill-rule="evenodd" />
-</svg></span>
+        <nav class="mx-auto py-8 px-4 max-w-7xl flex-(& col) items-center gap-4 md:(flex-row justify-between)">
+          <a href="/11ty-twind/" class="group text-pri-600 flex-(& none) items-center gap-2 transform motion-safe:(transition) hover:(text-pri-500)"><iconify-icon icon="mdi:tailwind" inline width="50px" height="50px" class="iconify"></iconify-icon>
             <strong class="text-xl font-semibold hidden md:(text-2xl tracking-tight block)">11ty Twind</strong>
           </a>
           <ul class="flex items-center gap-4 md:(gap-10)">
@@ -70,16 +66,16 @@
       <main class="pb-8 w-full flex-1 md:(pb-24)">
         <section class="mx-auto px-4 max-w-7xl">
           <div class="pt-12">
-<h1 class="pb-12 w-full text-2xl leading-tight font-black flex items-center space-x-4 lg:(text-[calc(3vw)])">
-  <span class="text-center flex-1">
+            
+<h1 class="pb-12 w-full text-2xl leading-tight font-black flex items-center space-x-4 lg:(text-[calc(3vw)])"><i class="h-px bg-gray-500/20 flex-1" aria-hidden="true"></i>
+  <span class="flex-none">
     11ty + Twind
-  </span>
+  </span><i class="h-px bg-gray-500/20 flex-1" aria-hidden="true"></i>
 </h1>
-
             <article class="prose prose-a:(text-pri-700 dark:(text-pri-500)) prose-headings:(text-wrap-balance) prose-pre:(bg-gray-800 dark:bg-gray-800) mx-auto max-w-4xl">
 <h2>Intro heading</h2>
 <p class="lead">Twind is Tailwind but without the build step. It also comes with a ton of cool options for stuff like auto-dark, grouping, arbitrary one-offs, and much much more. And since it's live, you can do stuff like partial class assembly <code>:class=&quot;'bg-'+ color +'-500/'+ opacity&quot;</code></p>
-<p><strong>Included in this kit is also an example of a <a href="https://github.com/craigerskine/11ty-twind/blob/main/_site/_includes/macro.button.njk">parameterized component</a>:</strong></p>
+<p><strong>Included in this kit are examples of <a href="https://github.com/craigerskine/11ty-twind/blob/main/_site/_includes/macro.button.njk">parameterized components/macros</a>:</strong></p>
 <pre class="language-twig"><code class="language-twig"><span class="token twig language-twig"><span class="token comment">{# _includes/macro.button.njk #}</span></span>
 <span class="token twig language-twig"><span class="token delimiter punctuation">{%-</span> <span class="token tag-name keyword">macro</span> button<span class="token punctuation">(</span>param<span class="token punctuation">)</span> <span class="token delimiter punctuation">-%}</span></span>
   <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>button<span class="token twig language-twig"><span class="token delimiter punctuation">{{</span> param<span class="token punctuation">.</span>props <span class="token operator">|</span> safe <span class="token delimiter punctuation">}}</span></span></span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>py-1.5 px-3 bg-<span class="token twig language-twig"><span class="token delimiter punctuation">{{</span> param<span class="token punctuation">.</span>color <span class="token delimiter punctuation">}}</span></span>-500 text-black/90 inline-flex ...youGetTheIdea<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
@@ -121,10 +117,7 @@
         <div class="mx-auto px-4 max-w-7xl">
           <div class="pb-8 text-center space-y-5 md:(pb-12 text-start flex items-start justify-between gap-5 space-y-0)">
             <nav class="flex-none">
-              <a href="/11ty-twind/" class="group w-10 h-10 text-pri-700/50 inline-flex transform motion-safe:(transition) hover:(text-pri-500)"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" class="text-current fill-current motion-safe:(transition) group-hover:(rotate-45)" role="img">
-  <title>11ty Twind</title>
-  <path d="m49.9997864 52.8277864 33.9127303 33.914098c-8.9121413 8.2299265-20.8251307 13.2581156-33.9125167 13.2581156-13.0878756 0-25.0012668-5.0285653-33.9135169-13.2590393zm-36.7407471-36.7413033 33.9127471 33.9133033-33.9127471 33.9137305c-8.23047398-8.9122501-13.2590393-20.8256413-13.2590393-33.9135169s5.02856532-25.0012668 13.2590393-33.9135169zm73.4819214 0c8.230474 8.9122501 13.2590393 20.8256413 13.2590393 33.9135169 0 13.087386-5.0281891 25.0003754-13.2581156 33.9125167l-33.914098-33.9127303zm-36.7409607-16.0864831c13.0878756 0 25.0012668 5.02856532 33.9135169 13.2590393l-33.9137305 33.9127471-33.9133033-33.9127471c8.9122501-8.23047398 20.8256413-13.2590393 33.9135169-13.2590393z" fill-rule="evenodd" />
-</svg>
+              <a href="/11ty-twind/" class="group text-pri-700/50 inline-flex transform motion-safe:(transition) hover:(text-pri-500)"><iconify-icon icon="mdi:tailwind" inline width="50px" height="50px" class="iconify"></iconify-icon>
               </a>
               <ul class="py-5 text-2xl flex justify-center gap-5 md:(justify-start)">
                 <li>
@@ -200,14 +193,14 @@
             </p>
             <p>
               Updated on:
-              <time datetime="2024-07-05T21:06:32.400Z" class="block">07/05/2024</time>
+              <time datetime="2024-07-19T17:39:24.029Z" class="block">07/19/2024</time>
             </p>
           </div>
         </div>
       </footer>
 
     </div>
-    <script src="/11ty-twind/_assets/js/_app.js?v=20246521"></script>
+    <script src="/11ty-twind/_assets/js/_app.js?v=202461917"></script>
 
   </body>
 
