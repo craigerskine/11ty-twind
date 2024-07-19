@@ -1,10 +1,11 @@
 {#-
-  color: {tailwindcss colors sans-shade}
+  color: (tailwindcss colors without shade suffix)
   outline: boolean (bordered)
   ghost: boolean
+  size: string (tailwindcss text- sizes)
   reverse: boolean
   href: string (if undefined will render as <button>)
-  icon: string (if slot is undefined will render as 1:1)
+  icon: string (if slot is undefined will render 1:1)
   circle: boolean (full rounded corners)
   sharp: boolean (no rounded corners)
   slot: string (children)
@@ -16,6 +17,11 @@
     {#- colors -#}
     {{- param.color if param.color else 'pri' -}}
   {%- endset -%}
+  {%- set iconSize -%}
+    {#- icon size -#}
+    {{- '1.25em' if param.slot and param.icon else '1.75em' -}}
+  {%- endset -%}
+  
 
   {%- set classes -%}
     {#- outline -#}
@@ -25,7 +31,7 @@
     {#- contained -#}
     {%- else %} bg-{{ color }}-400 text-black/90 hover:(bg-{{ color }}-300) focus:(outline-(& 2 offset-2 {{ color }}-300/100)) dark:(bg-{{ color }}-400 hover:(bg-{{ color }}-300) focus:(outline-{{ color }}-400)){%- endif %}
     {#- square -#}
-    {%- if not param.slot and param.icon %} w-9 h-9{%- else %} py-[.5em] px-[1em]{%- endif %}
+    {%- if not param.slot and param.icon %} w-[2.75em] h-[2.75em]{%- else %} py-[.75em] px-[1em]{%- endif %}
     {#- circle -#}
     {%- if param.circle %} rounded-full{%- elseif param.sharp %} rounded-none{%- else %} rounded-[.3em]{%- endif %}
     {#- reverse -#}
@@ -36,6 +42,6 @@
 
   <{% if param.href %}a href="{{ param.href }}"{% else %}button type="button"{% endif %} class="max-w-[18rem] leading-tight inline-flex items-center justify-center gap-2.5 motion-safe:(transition) {{ classes }}"{{ param.props | safe }}>
     {%- if param.slot -%}<span class="min-w-0 flex-1 truncate">{{ param.slot | safe }}</span>{%- endif -%}
-    {%- if param.icon -%}<span class="flex-(& shrink-0) opacity-70"><iconify-icon icon="{{ param.icon }}" width="1.5em" height="1.5em" class="-my-3"></iconify-icon></span>{%- endif -%}
+    {%- if param.icon -%}<span class="flex-(& shrink-0) opacity-70"><iconify-icon icon="{{ param.icon }}" width="{{ iconSize }}" height="{{ iconSize }}"></iconify-icon></span>{%- endif -%}
   </{% if param.href %}a{% else %}button{% endif %}>
 {%- endmacro -%}

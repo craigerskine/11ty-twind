@@ -56,31 +56,41 @@ Twind is Tailwind but without the build step. It also comes with a ton of cool o
   color: 'orange',
   icon: 'mdi:tailwind',
   circle: true,
-  props: ' aria-label="check"'
+  props: ' aria-label="Tailwind CSS"'
+}) }} {{ button({
+  color: 'emerald',
+  icon: 'mdi:tailwind',
+  props: ' aria-label="Tailwind CSS"'
 }) }} {{ button({
   color: 'neutral',
   slot: 'Truncate super long button labels like this'
 }) }} {{ button({
   color: 'zinc',
+  outline: true,
   slot: 'XS',
   size: 'xs'
 }) }} {{ button({
   color: 'zinc',
+  outline: true,
   slot: 'SM',
   size: 'sm'
 }) }} {{ button({
   color: 'zinc',
+  outline: true,
   slot: 'Base'
 }) }} {{ button({
   color: 'zinc',
+  outline: true,
   slot: 'LG',
   size: 'lg'
 }) }} {{ button({
   color: 'zinc',
+  outline: true,
   slot: 'XL',
   size: 'xl'
 }) }} {{ button({
   color: 'zinc',
+  outline: true,
   slot: '2XL',
   size: '2xl'
 }) }} { .p-8 .flex .flex-wrap .items-center .justify-center .gap-3 }
