@@ -83,8 +83,8 @@ module.exports = function(eleventyConfig) {
   });
 
   // esbuild
-  eleventyConfig.on('eleventy.before', async () => {
-    await esbuild.build({
+  eleventyConfig.on('eleventy.after', async ({ dir, results, runMode, outputMode }) => {
+    return esbuild.build({
       entryPoints: ['_site/_app/_app.js'],
       outfile: 'public/_assets/js/_app.js',
       bundle: true,

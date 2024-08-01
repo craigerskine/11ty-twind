@@ -31,6 +31,8 @@ Twind is Tailwind but without the build step. It also comes with a ton of cool o
 }) }}
 {% endraw %}```
 
+## Button component with a bunch of different prop options set
+
 {{ button({
   color: 'pri',
   slot: 'Contained'
@@ -56,11 +58,11 @@ Twind is Tailwind but without the build step. It also comes with a ton of cool o
   color: 'orange',
   icon: 'mdi:tailwind',
   circle: true,
-  props: ' aria-label="Tailwind CSS"'
+  props: ' x-tooltip="Circle" aria-label="Tailwind CSS"'
 }) }} {{ button({
   color: 'emerald',
   icon: 'mdi:tailwind',
-  props: ' aria-label="Tailwind CSS"'
+  props: ' x-tooltip="Square" aria-label="Tailwind CSS"'
 }) }} {{ button({
   color: 'neutral',
   slot: 'Truncate super long button labels like this'
