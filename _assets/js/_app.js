@@ -16,7 +16,7 @@ ${r?'Expression: "'+r+`"
     .tippy-arrow { @apply w-4 h-4 text-black absolute before:(content-[''] absolute border-(transparent solid)); }
     .tippy-content { @apply py-1.5 px-3 relative z-[1]; }
   }
-`;document.addEventListener("alpine:init",()=>{It.magic("tooltip",e=>t=>{let r=To(e,{content:t,trigger:"manual"});r.show(),setTimeout(()=>{r.hide(),setTimeout(()=>r.destroy(),150)},2e3)}),It.directive("tooltip",(e,{expression:t})=>{To(e,{content:t})})});It.plugin([ec]);window.Alpine=It;It.start();})();
+`;document.addEventListener("alpine:init",()=>{It.magic("tooltip",e=>t=>{let r=To(e,{content:t,trigger:"manual"});r.show(),setTimeout(()=>{r.hide(),setTimeout(()=>r.destroy(),150)},2e3)}),It.directive("tooltip",(e,{expression:t},{evaluate:r})=>{To(e,{content:r(t)})})});It.plugin([ec]);window.Alpine=It;It.start();})();
 /*! Bundled license information:
 
 instant.page/instantpage.js:
