@@ -1,0 +1,59 @@
+{#-
+  ref: string
+  title: string
+  slot: string (md support)
+  action: string
+  props: string (great for stuff like alpine or aria attrs)
+-#}
+{%- from 'macro.button.njk' import button -%}
+
+{%- macro dialog(param) -%}
+
+{%- set classes -%}
+dialog
+m-0
+p-0
+w-full
+max-w-none
+h-full
+max-h-none
+min-h-screen
+bg-transparent
+text-[inherit]
+invisible
+grid
+items-center
+justify-items-center
+fixed
+inset-0
+pointer-events-none
+overflow-y-hidden
+[overscroll-behavior:contain]
+opacity-0
+motion-safe:(transition-all)
+[&[open]]:(pointer-events-auto visible opacity-100)
+[&[open]_.dialog-box]:(translate-y-0 scale-100)
+[&::backdrop]:(bg-black/40 dark:(bg-black/70))
+{%- endset -%}
+
+{%- set action -%}{{ param.action if param.action else 'Close' }}{%- endset -%}
+
+<template x-teleport="body">
+  <dialog x-ref="{{ param.ref if param.ref else 'dialog' }}" class="{{ classes }}"{{ param.props | safe }}>
+    <div class="dialog-box p-6 w-11/12 max-w-lg max-h-[calc(100vh-5em)] bg-white text-(gray-900) col-start-1 row-start-1 overflow-y-auto [overscroll-behavior:contain] translate-y-3 rounded-3xl shadow-2xl scale-90 motion-safe:(transition-all) dark:(bg-gray-900 text-gray-200)">
+      <form method="dialog" class="absolute top-2 right-2"><button class="block w-10 h-10 text-2xl leading-none flex items-center justify-center rounded-full motion-safe:(transition) hover:(bg-gray-500/10)">&times;</button></form>
+      {%- if param.title %}<h3 class="mb-6 text-xl font-bold">{{ param.title }}</h3>{%- endif %}
+      <div class="prose">{{ param.slot | md | safe }}</div>
+      <div class="dialog-action mt-6 flex gap-4 justify-end">
+        <form method="dialog">
+          {{ button({ slot: action, ghost: true }) }}
+        </form>
+      </div>
+    </div>
+    <form method="dialog" class="text-transparent grid col-start-1 row-start-1 self-stretch justify-self-stretch fixed inset-0 -z-[1]">
+      <button>Close</button>
+    </form>
+  </dialog>
+</template>
+
+{%- endmacro -%}

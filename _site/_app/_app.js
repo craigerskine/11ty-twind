@@ -86,8 +86,8 @@ document.addEventListener('alpine:init', () => {
     }, 2000)
   });
   // directive: x-tooltip
-  Alpine.directive('tooltip', (el, { expression }) => {
-    tippy(el, { content: expression })
+  Alpine.directive('tooltip', (el, { expression }, { evaluate }) => {
+    tippy(el, { content: evaluate(expression) })
   });
 });
 

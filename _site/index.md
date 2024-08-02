@@ -4,6 +4,7 @@ title: 11ty + Twind
 ---
 
 {%- from 'macro.button.njk' import button -%}
+{%- from 'macro.dialog.njk' import dialog -%}
 
 <article class="{{ site.prose }}">
 
@@ -58,11 +59,11 @@ Twind is Tailwind but without the build step. It also comes with a ton of cool o
   color: 'orange',
   icon: 'mdi:tailwind',
   circle: true,
-  props: ' x-tooltip="Circle" aria-label="Tailwind CSS"'
+  props: ' x-tooltip="\'Circle\'" aria-label="Tailwind CSS"'
 }) }} {{ button({
   color: 'emerald',
   icon: 'mdi:tailwind',
-  props: ' x-tooltip="Square" aria-label="Tailwind CSS"'
+  props: ' x-tooltip="\'Square\'" aria-label="Tailwind CSS"'
 }) }} {{ button({
   color: 'neutral',
   slot: 'Truncate super long button labels like this'
@@ -96,6 +97,22 @@ Twind is Tailwind but without the build step. It also comes with a ton of cool o
   slot: '2XL',
   size: '2xl'
 }) }} { .p-8 .flex .flex-wrap .items-center .justify-center .gap-3 }
+
+## Alpine.js Modal/Dialog
+
+<div class="text-center">
+{{ button({
+  color: 'yellow',
+  outline: true,
+  slot: 'Open Dialog',
+  props: ' @click="$refs.myDialog.showModal()"'
+}) }}
+{{ dialog({
+  ref: 'myDialog',
+  title: 'Dialog title',
+  slot: 'This uses the HTML `dialog` tag so it automatically comes with full accessibility. Press `ESC` to close, click the backdrop to close, default browser focus trap, no scrolling on background when open, etc.'
+}) }}
+</div>
 
 ***
 
