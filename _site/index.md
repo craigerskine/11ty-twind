@@ -6,7 +6,16 @@ title: 11ty + Twind
 {%- from 'macro.button.njk' import button -%}
 {%- from 'macro.dialog.njk' import dialog -%}
 
+<p class="mb-12 text-center">{{ button({
+  href: 'https://github.com/craigerskine/11ty-twind/',
+  outline: true,
+  slot: 'Source',
+  icon: 'mdi:github'
+}) }}</p>
+
 <article class="{{ site.prose }}">
+
+***
 
 ## Intro heading
 
@@ -32,7 +41,7 @@ Twind is Tailwind but without the build step. It also comes with a ton of cool o
 }) }}
 {% endraw %}```
 
-## Button component with a bunch of different prop options set
+## Button component with a bunch of different prop option examples
 
 {{ button({
   color: 'pri',
