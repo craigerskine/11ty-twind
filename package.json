@@ -27,7 +27,7 @@
     "@twind/preset-typography": "^1.0.7",
     "alpinejs": "^3.14.7",
     "clean-css": "^5.3.3",
-    "esbuild": "^0.23.0",
+    "esbuild": "^0.24.0",
     "iconify-icon": "^2.1.0",
     "instant.page": "^5.2.0",
     "js-yaml": "^4.1.0",
