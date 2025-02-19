@@ -5,7 +5,6 @@ import esbuild from 'esbuild';
 import markdownIt from 'markdown-it';
 import markdownItAttrs from 'markdown-it-attrs';
 import yaml from 'js-yaml';
-import CleanCSS from 'clean-css';
 
 export default function (eleventyConfig) {
 
@@ -55,8 +54,22 @@ export default function (eleventyConfig) {
   });
 
   // cssmin
-  eleventyConfig.addFilter("cssmin", function(code) {
-    return new CleanCSS({}).minify(code).styles;
+  /*
+    {%- set css -%}
+      .parent {
+        padding: 0;
+        & :where(:not(.child)) { margin: 0; }
+      }
+    {%- endset -%}
+    {{ css | cssmin | safe }}
+  */
+  eleventyConfig.addFilter('cssmin', function(code) {
+    return code
+      .replace(/\/\*(?:(?!\*\/)[\s\S])*\*\/|[\r\n\t]+/g, '')
+      .replace(/ {2,}/g, ' ')
+      .replace(/ ([{:}]) /g, '$1')
+      .replace(/([;,]) /g, '$1')
+      .replace(/ !/g, '!');
   });
 
   // | randomLimit(6, page.url)
