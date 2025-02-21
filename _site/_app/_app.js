@@ -39,6 +39,28 @@ install({
       colors: ({ theme }) => ({
         pri: theme('colors.sky'),
         sec: theme('colors.pink'),
+        slate: { 950: '#020617' },
+        gray: { 950: '#030712' },
+        zinc: { 950: '#09090B' },
+        neutral: { 950: '#0A0A0A' },
+        stone: { 950: '#0C0A09' },
+        red: { 950: '#450A0A' },
+        orange: { 950: '#431407' },
+        amber: { 950: '#451A03' },
+        yellow: { 950: '#422006' },
+        lime: { 950: '#1A2E05' },
+        green: { 950: '#052E16' },
+        emerald: { 950: '#022C22' },
+        teal: { 950: '#042F2E' },
+        cyan: { 950: '#083344' },
+        sky: { 950: '#082F49' },
+        blue: { 950: '#172554' },
+        indigo: { 950: '#1E1B4B' },
+        violet: { 950: '#2E1065' },
+        purple: { 950: '#3B0764' },
+        fuchsia: { 950: '#4A044E' },
+        pink: { 950: '#500724' },
+        rose: { 950: '#4C0519' },
       }),
       fontFamily: ({ theme }) => ({
         sans: ['Inter', ...theme('fontFamily.sans')],
@@ -57,6 +79,7 @@ injectGlobal`
   /* layers: defaults, base, components, shortcuts, utilities, overrides */
   @layer base {
     /* .some-selector,#some-selector { @apply text-wrap-balance; } */
+    [x-cloak] { @apply hidden; }
     .tippy-box[data-state="hidden"] { @apply opacity-0 translate-y-1; }
     [data-tippy-root] { @apply max-w-[calc(100vw-10px)]; }
     .tippy-box { @apply bg-black text-(white/80 xs) font-semibold relative outline-0 opacity-100 rounded translate-y-0 motion-safe:(transition duration-75); }
