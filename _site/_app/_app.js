@@ -99,18 +99,59 @@ import tippy from 'tippy.js';
 
 document.addEventListener('alpine:init', () => {
   // tooltip
-  // magic: $tooltip
+  // magic: @focus="$tooltip('some tooltip')"
   Alpine.magic('tooltip', el => message => {
-    let instance = tippy(el, { content: message, trigger: 'manual' })
-    instance.show()
-    setTimeout(() => {
-      instance.hide()
-      setTimeout(() => instance.destroy(), 150)
-    }, 2000)
+    let instance = tippy(el, {
+      content: message,
+      trigger: 'manual',
+    });
+
+    const onEscape = (e) => {
+      if (e.key === 'Escape') cleanup();
+    };
+
+    const cleanup = () => {
+      instance.hide();
+      setTimeout(() => instance.destroy(), 0);
+      document.removeEventListener('keydown', onEscape);
+      el.removeEventListener('mouseleave', cleanup);
+      el.removeEventListener('blur', cleanup);
+    };
+
+    document.addEventListener('keydown', onEscape);
+    el.addEventListener('mouseleave', cleanup);
+    el.addEventListener('blur', cleanup);
+
+    instance.show();
+
+    setTimeout(cleanup, 2000);
   });
-  // directive: x-tooltip
+
   Alpine.directive('tooltip', (el, { expression }, { evaluate }) => {
-    tippy(el, { content: evaluate(expression) })
+    const instance = tippy(el, {
+      content: evaluate(expression),
+    });
+
+    const onEscape = (e) => {
+      if (e.key === 'Escape') {
+        instance.hide();
+      }
+    };
+
+    document.addEventListener('keydown', onEscape);
+
+    el._tippyCleanup = () => {
+      document.removeEventListener('keydown', onEscape);
+      instance.destroy();
+    };
+  });
+
+  document.addEventListener('alpine:clean', (e) => {
+    const el = e.target;
+    if (el._tippyCleanup) {
+      el._tippyCleanup();
+      delete el._tippyCleanup;
+    }
   });
 });
 
