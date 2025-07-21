@@ -129,7 +129,7 @@
             </p>
             <p>
               Updated on:
-              <time datetime="{{ build.time.raw }}" class="block">{{ build.time.formatted }}</time>
+              <time datetime="{% build 'raw' %}" class="block">{% build %}</time>
             </p>
           </div>
         </div>

@@ -123,6 +123,25 @@ Twind is Tailwind but without the build step. It also comes with a ton of cool o
 }) }}
 </div>
 
+## Alpine.js Anchor
+
+<div class="mx-auto w-fit" x-data="{ open: false }" @click.outside="open = false" @keyup.escape.window="open = false">
+{{ button({
+  color: 'sky',
+  outline: true,
+  slot: 'Toggle',
+  icon: 'mdi:chevron-down',
+  props: ' x-ref="toggle" @click="open = !open" :aria-expanded="open" :class="\'[&[aria-expanded=true]_.icon]:(rotate-180)\'"'
+}) }}
+<div x-show="open" x-transition x-anchor.bottom-start.offset.10="$refs.toggle">
+  <ul class="m-0 p-2 border-(1 gray-500/20) w-52 bg-gray-100 flex-(& col) gap-2 list-none rounded-xl [&>li]:(m-0 p-0)">
+    <li><a href="#" @click.prevent="open = false" class="p-2 block no-underline rounded-lg transition hover:(bg-gray-500/10)">Click outside</a></li>
+    <li><a href="#" @click.prevent="open = false" class="p-2 block no-underline rounded-lg transition hover:(bg-gray-500/10)">Press escape</a></li>
+    <li><a href="#" @click.prevent="open = false" class="p-2 block no-underline rounded-lg transition hover:(bg-gray-500/10)">Select item</a></li>
+  </ul>
+</div>
+</div>
+
 ***
 
 ### Some Typography

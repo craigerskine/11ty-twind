@@ -94,6 +94,7 @@ injectGlobal`
 
 // alpinejs
 import Alpine from 'alpinejs';
+import anchor from '@alpinejs/anchor';
 import focus from '@alpinejs/focus';
 import tippy from 'tippy.js';
 
@@ -155,6 +156,6 @@ document.addEventListener('alpine:init', () => {
   });
 });
 
-Alpine.plugin([focus]);
+Alpine.plugin([anchor, focus]);
 window.Alpine = Alpine;
 Alpine.start();

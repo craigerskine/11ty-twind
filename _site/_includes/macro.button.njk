@@ -21,7 +21,7 @@
     {#- icon size -#}
     {{- '1.25em' if param.slot and param.icon else '1.75em' -}}
   {%- endset -%}
-  
+
 
   {%- set classes -%}
     {#- outline -#}
@@ -42,6 +42,6 @@
 
   <{% if param.href %}a href="{{ param.href }}"{% else %}button{% endif %} class="max-w-[18rem] leading-tight inline-flex items-center justify-center gap-2.5 motion-safe:(transition) {{ classes }}"{{ param.props | safe }}>
     {%- if param.slot -%}<span class="min-w-0 flex-1 truncate">{{ param.slot | safe }}</span>{%- endif -%}
-    {%- if param.icon -%}<span class="flex-(& shrink-0) opacity-70"><iconify-icon icon="{{ param.icon }}" width="{{ iconSize }}" height="{{ iconSize }}"></iconify-icon></span>{%- endif -%}
+    {%- if param.icon -%}<span class="icon flex-(& shrink-0) opacity-70 transition"><iconify-icon icon="{{ param.icon }}" width="{{ iconSize }}" height="{{ iconSize }}"></iconify-icon></span>{%- endif -%}
   </{% if param.href %}a{% else %}button{% endif %}>
 {%- endmacro -%}
