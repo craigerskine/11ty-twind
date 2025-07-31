@@ -57,8 +57,8 @@
             {%- endfor %}
             <li>
               <button class="color-mode text-gray-500 motion-safe:(transition) hover:(text-gray-700)" aria-label="Toggle color mode">
-                <span class="block dark:(hidden)"><iconify-icon icon="mdi:weather-sunny" inline="false" class="iconify text-xl"></iconify-icon> <span class="sr-only">Switch to dark mode</span></span>
-                <span class="hidden dark:(block)"><iconify-icon icon="mdi:weather-night" inline="false" class="iconify text-xl"></iconify-icon> <span class="sr-only">Switch to light mode</span></span>
+                <span class="block dark:(hidden)"><iconify-icon icon="mdi:weather-sunny" inline="false" class="iconify text-xl" noobserver></iconify-icon> <span class="sr-only">Switch to dark mode</span></span>
+                <span class="hidden dark:(block)"><iconify-icon icon="mdi:weather-night" inline="false" class="iconify text-xl" noobserver></iconify-icon> <span class="sr-only">Switch to light mode</span></span>
               </button>
             </li>
           </ul>
@@ -93,7 +93,7 @@
                 {%- for item in site.social %}
                 <li>
                   <a href="{{ item.url }}" class="opacity-50 motion-safe:(transition) hover:(text-{{ item.color }}-500 opacity-100)" aria-label="{{ item.title }}">
-                    <iconify-icon icon="{{ item.ico }}" inline="false" class="iconify"></iconify-icon>
+                    <iconify-icon icon="{{ item.ico }}" inline="false" class="iconify" noobserver></iconify-icon>
                   </a>
                 </li>
                 {%- endfor %}

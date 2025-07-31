@@ -13,9 +13,9 @@ layout: 'layouts/default.njk'
           <ul class="flex">
             {%- for i in range(0, 5) %}
             {%- if rating >= loop.index %}
-            <li><iconify-icon icon="mdi:star" inline="false" class="iconify text-yellow-500"></iconify-icon></li>
+            <li><iconify-icon icon="mdi:star" inline="false" class="iconify text-yellow-500" noobserver></iconify-icon></li>
             {%- else %}
-            <li class="opacity-30"><iconify-icon icon="mdi:star-outline" inline="false" class="iconify"></iconify-icon></li>
+            <li class="opacity-30"><iconify-icon icon="mdi:star-outline" inline="false" class="iconify" noobserver></iconify-icon></li>
             {%- endif %}
             {%- endfor %}
           </ul>
@@ -23,7 +23,7 @@ layout: 'layouts/default.njk'
       </figcaption>
     </figure>
   </aside>
-  
+
   <article class="{{ site.prose }}">
     {{ content | safe }}
   </article>

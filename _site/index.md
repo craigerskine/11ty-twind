@@ -28,7 +28,7 @@ Twind is Tailwind but without the build step. It also comes with a ton of cool o
 {%- macro button(param) -%}
   <button{{ param.props | safe }} class="py-1.5 px-3 bg-{{ param.color }}-500 text-black/90 inline-flex ...youGetTheIdea">
     {{ param.slot | safe }}
-    {%- if param.icon %}<iconify-icon icon="{{ param.icon }}"></iconify-icon>{%- endif %}
+    {%- if param.icon %}<iconify-icon icon="{{ param.icon }}" noobserver></iconify-icon>{%- endif %}
   </button>
 {%- endmacro -%}
 

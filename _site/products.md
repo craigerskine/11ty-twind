@@ -28,9 +28,9 @@ eleventyComputed:
         <ul class="flex items-center justify-end">
           {%- for i in range(0, 5) %}
           {%- if item.data.rating >= loop.index %}
-          <li><iconify-icon icon="mdi:star" inline width="20px" height="20px" class="iconify text-yellow-500"></iconify-icon></li>
+          <li><iconify-icon icon="mdi:star" inline width="20px" height="20px" class="iconify text-yellow-500" noobserver></iconify-icon></li>
           {%- else %}
-          <li class="opacity-30"><iconify-icon icon="mdi:star-outline" inline width="20px" height="20px" class="iconify"></iconify-icon></li>
+          <li class="opacity-30"><iconify-icon icon="mdi:star-outline" inline width="20px" height="20px" class="iconify" noobserver></iconify-icon></li>
           {%- endif %}
           {%- endfor %}
         </ul>
