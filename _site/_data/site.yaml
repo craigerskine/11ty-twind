@@ -11,19 +11,19 @@ prose: 'prose prose-a:(text-pri-700 dark:(text-pri-500)) prose-headings:(text-wr
 social:
   - title: Twitter
     url: https://twitter.com/USER
-    ico: mdi:twitter
+    ico: simple-icons:x
     color: blue
   - title: Youtube
     url: https://youtube.com/USER
-    ico: mdi:youtube
+    ico: simple-icons:youtube
     color: red
   - title: Instagram
     url: https://instagram.com/USER
-    ico: mdi:instagram
+    ico: simple-icons:instagram
     color: orange
   - title: GitHub
     url: https://github.com/craigerskine/11ty-twind/
-    ico: mdi:github
+    ico: simple-icons:github
     color: neutral
 
 footer:

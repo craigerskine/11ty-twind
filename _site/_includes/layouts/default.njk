@@ -2,7 +2,7 @@
 {%- set page_title -%}{{ title +' :: '+ site.meta.title if title else site.meta.title }}{%- endset -%}
 
 <!doctype html>
-<html lang="en" class="bg-transparent antialiased [&:has(:is(dialog[open]))]:(overflow-hidden [scrollbar-gutter:stable])" x-data>
+<html lang="en" class="bg-transparent antialiased [&:has(:is(dialog[open]))]:(overflow-hidden [scrollbar-gutter:stable])" x-data x-cloak>
 
   <head>
     <meta charset="utf-8" />
@@ -22,27 +22,32 @@
     <meta property="og:url" content="{{ page.url | url }}" />
     <meta property="og:image" content="{{ '/' | url }}_assets/img/og.png" />
 
-    {% set css %}
-      {% include 'css/prism.css' %}
-    {% endset %}
-    <style>{{ css | cssmin | safe }}</style>
-    {% renderblock 'css' %}
-
     <script>
       if (localStorage.getItem('color-mode') === 'dark' || (window.matchMedia('(prefers-color-scheme: dark)').matches && !localStorage.getItem('color-mode'))) {
         document.documentElement.classList.add('dark');
       }
     </script>
 
+    {% set css %}
+      {% include 'css/prism.css' %}
+    {% endset %}
+    <style>
+      [x-cloak] { display: none; }
+      {{ css | cssmin | safe }}
+    </style>
+    {% renderblock 'css' %}
+    <style data-twind></style>
+
   </head>
 
-  <body class="bg-gray-50 text-pri-900 !block" style="display: none;" data-instant-intensity="mousedown">
+  <body class="bg-(gray-50 grid) text-pri-900 !block" style="display: none;" data-instant-intensity="mousedown">
 
     <div class="min-h-screen flex-(& col) relative">
 
       <header class="w-full flex-none">
         <nav class="mx-auto py-8 px-4 max-w-7xl flex-(& col) items-center gap-4 md:(flex-row justify-between)">
           <a href="{{ '/' | url }}" class="group text-pri-600 flex-(& none) items-center gap-2 transform motion-safe:(transition) hover:(text-pri-500)">
+            {%- set width = '11' -%}
             {%- include '_logo.njk' %}
             <strong class="text-xl font-semibold hidden md:(text-2xl tracking-tight block)">{{ site.meta.title }}</strong>
           </a>
@@ -87,13 +92,14 @@
           <div class="pb-8 text-center space-y-5 md:(pb-12 text-start flex items-start justify-between gap-5 space-y-0)">
             <nav class="flex-none">
               <a href="{{ '/' | url }}" class="group text-pri-700/50 inline-flex transform motion-safe:(transition) hover:(text-pri-500)">
+                {%- set width = '8' -%}
                 {%- include '_logo.njk' %}
               </a>
-              <ul class="py-5 text-2xl flex justify-center gap-5 md:(justify-start)">
+              <ul class="py-5 text-lg flex justify-center gap-5 md:(justify-start)">
                 {%- for item in site.social %}
                 <li>
                   <a href="{{ item.url }}" class="opacity-50 motion-safe:(transition) hover:(text-{{ item.color }}-500 opacity-100)" aria-label="{{ item.title }}">
-                    <iconify-icon icon="{{ item.ico }}" inline="false" class="iconify" noobserver></iconify-icon>
+                    <iconify-icon icon="{{ item.ico }}" class="iconify" noobserver></iconify-icon>
                   </a>
                 </li>
                 {%- endfor %}

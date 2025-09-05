@@ -4,7 +4,7 @@ import syntaxHighlight from '@11ty/eleventy-plugin-syntaxhighlight';
 import esbuild from 'esbuild';
 import markdownIt from 'markdown-it';
 import markdownItAttrs from 'markdown-it-attrs';
-import yaml from 'js-yaml';
+import yaml from 'yaml';
 
 export default function (eleventyConfig) {
 
@@ -15,7 +15,6 @@ export default function (eleventyConfig) {
   eleventyConfig.setDataFileBaseName('_data');
 
   eleventyConfig.addPassthroughCopy({
-    '_site/_assets/files': '_assets/files',
     '_site/_assets/img': '_assets/img',
     '_site/_assets/_root': './',
   });
@@ -34,7 +33,8 @@ export default function (eleventyConfig) {
   }).disable('code').use(markdownItAttrs);
   eleventyConfig.setLibrary('md', markdownLibrary);
 
-  eleventyConfig.addDataExtension('yaml', (contents) => yaml.load(contents));
+  // additional data formats
+  eleventyConfig.addDataExtension('yml,yaml', (contents, filePath) => yaml.parse(contents, filePath));
 
   // shortcodes
   eleventyConfig.addShortcode('bust', () => `${new Date().getFullYear()}${new Date().getMonth()}${new Date().getDate()}${new Date().getHours()}`);
@@ -114,7 +114,7 @@ export default function (eleventyConfig) {
   // esbuild
   eleventyConfig.on('eleventy.after', async ({ dir, results, runMode, outputMode }) => {
     return esbuild.build({
-      entryPoints: ['_site/_app/_app.js'],
+      entryPoints: ['_site/_app.js'],
       outfile: 'public/_assets/js/_app.js',
       bundle: true,
       minify: true,

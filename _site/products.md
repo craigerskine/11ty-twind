@@ -16,7 +16,7 @@ eleventyComputed:
 {%- set i -%}
 <div class="group w-full h-full bg-white relative rounded-lg shadow-lg dark:(bg-pri-500/5)">
   <figure>
-    <img src="https://picsum.photos/id/{{ item.data.img }}/400/300" alt="{{ item.data.title }} photo" class="w-full h-48 object-(cover center) rounded-t-lg motion-safe:(transition-all) group-hover:(object-bottom)" />
+    <img src="https://placehold.net/{{ item.data.img }}.png" alt="{{ item.data.title }} photo" class="w-full h-48 object-(cover center) rounded-t-lg motion-safe:(transition-all) group-hover:(object-bottom)" />
     <figcaption class="p-6 space-y-1">
       <a href="{{ item.url | url }}" class="text-(lg pri-600) leading-tight font-semibold inline-block [&:after]:(w-full h-0.5 bg-current block opacity-50 scale-0 motion-safe:(transition) content-['']) [&:hover:after,&:focus:after]:(scale-100)">
         {{ item.data.title }}

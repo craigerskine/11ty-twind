@@ -1,6 +1,6 @@
 ---
 title: Gadget
-img: 0
+img: 9
 rating: 2
 price: 99
 date: 0001-01-01

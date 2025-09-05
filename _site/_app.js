@@ -70,7 +70,7 @@ install({
   // custom rules
   rules: [
     ['text-wrap-(unset|wrap|nowrap|balance|pretty)', 'textWrap'],
-    ['bg-grid', {'background-image': 'url("data:image/svg+xml,<svg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 4 4\' width=\'4\' height=\'4\'><rect x=\'0\' y=\'0\' width=\'2\' height=\'2\' fill=\'currentColor\'></rect></svg>")'}],
+    ['bg-grid', {'background-image': 'url("data:image/svg+xml,<svg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 4 4\' width=\'4\' height=\'4\'><rect x=\'0\' y=\'0\' width=\'2\' height=\'2\' fill=\'rgb(128 128 128 / .1)\'></rect></svg>")'}],
     ['container-', ({ $$ }) => `mx-auto w-full max-w-${$$}`],
   ],
 });
@@ -79,7 +79,7 @@ injectGlobal`
   /* layers: defaults, base, components, shortcuts, utilities, overrides */
   @layer base {
     /* .some-selector,#some-selector { @apply text-wrap-balance; } */
-    [x-cloak] { @apply hidden; }
+    /* tooltips */
     .tippy-box[data-state="hidden"] { @apply opacity-0 translate-y-1; }
     [data-tippy-root] { @apply max-w-[calc(100vw-10px)]; }
     .tippy-box { @apply bg-black text-(white/80 xs) font-semibold relative outline-0 opacity-100 rounded translate-y-0 motion-safe:(transition duration-75); }
