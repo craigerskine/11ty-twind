@@ -1,10 +1,11 @@
 ---
 meta:
-  title: 11ty Twind
-  description: 11ty Twind
-  url: https://craigerskine.github.io/11ty-twind/
+  title: 11ty + Twind
+  description: 11ty + Twind
+  url: https://craigerskine.github.io
   author: Craig Erskine
   author_url: https://craigerskine.com
+  separator: ' ⇢ '
 
 prose: 'prose prose-a:(text-pri-700 dark:(text-pri-500)) prose-headings:(text-wrap-balance) prose-pre:(bg-gray-800 dark:bg-gray-800) mx-auto max-w-4xl'
 

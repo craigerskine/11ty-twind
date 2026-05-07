@@ -1,5 +1,5 @@
+{%- set pageTitle -%}{{ title + site.meta.separator + site.meta.title if title else site.meta.title  + site.meta.separator + site.meta.description }}{%- endset -%}
 {%- from 'macro.heading.njk' import heading -%}
-{%- set page_title -%}{{ title +' :: '+ site.meta.title if title else site.meta.title }}{%- endset -%}
 
 <!doctype html>
 <html lang="en" class="bg-transparent antialiased [&:has(:is(dialog[open]))]:(overflow-hidden [scrollbar-gutter:stable])" x-data x-cloak>
@@ -7,7 +7,7 @@
   <head>
     <meta charset="utf-8" />
     <meta http-equiv="x-ua-compatible" content="ie=edge" />
-    <title>{{ page_title }}</title>
+    <title>{{ pageTitle | safe }}</title>
     <meta name="description" content="{{ site.meta.description }}" />
     <meta name="author" content="{{ site.meta.author }} - {{ site.meta.author_url }}" />
     <meta name="generator" content="{{ eleventy.generator }}" />
@@ -16,11 +16,20 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" />
     <link onload="this.onload=null;this.rel='stylesheet'" rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" />
 
-    <meta property="og:title" content="{{ page_title }}" />
-    <meta property="og:description" content="{{ site.meta.description }}" />
+    <meta name="title" content="{{ pageTitle | safe }}" />
     <meta property="og:type" content="website" />
-    <meta property="og:url" content="{{ page.url | url }}" />
-    <meta property="og:image" content="{{ '/' | url }}_assets/img/og.png" />
+    <meta property="og:url" content="{{ site.meta.url }}{{ page.url | url }}" />
+    <meta property="og:title" content="{{ pageTitle | safe }}" />
+    <meta property="og:description" content="{{ site.meta.description }}" />
+    <meta property="og:image" content="{{ site.meta.url }}{{ '/' | url }}og-image.png" />
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content="{{ site.meta.url }}{{ page.url | url }}" />
+    <meta property="twitter:title" content="{{ pageTitle | safe }}" />
+    <meta property="twitter:description" content="{{ site.meta.description }}" />
+    <meta property="twitter:image" content="{{ site.meta.url }}{{ '/' | url }}og-image.png" />
+
+    <link rel="icon" type="image/x-icon" href="{{ '/' | url }}favicon.ico" />
+    <link rel="apple-touch-icon" href="{{ '/' | url }}apple-touch-icon.png" />
 
     <script>
       if (localStorage.getItem('color-mode') === 'dark' || (window.matchMedia('(prefers-color-scheme: dark)').matches && !localStorage.getItem('color-mode'))) {
