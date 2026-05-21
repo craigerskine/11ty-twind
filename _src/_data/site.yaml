@@ -37,8 +37,3 @@ footer:
       - title: 'Twind'
         sub: Styles
         url: https://twind.style/
-
-analytics: |-
-  // google analytics
-  // window.ga = function () { ga.q.push(arguments) }; ga.q = []; ga.l = +new Date;
-  // ga('create', 'UA-XXXXXXX-X', 'auto'); ga('set','transport','beacon'); ga('send', 'pageview')
